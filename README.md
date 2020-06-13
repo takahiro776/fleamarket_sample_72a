@@ -102,8 +102,8 @@ belongs_to :item
 ### Transactionテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references, null|false, foreign_key: true|
-|item_id|references, null|false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
 
 ### Association
 belongs_to :user
@@ -114,8 +114,8 @@ belongs_to :item
 ### Likesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references, null|false, foreign_key: true|
-|item_id|references, null|false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
 
 ### Association
 belongs_to :user
@@ -126,7 +126,7 @@ belongs_to :item
 ### Messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text :text|null: false｜
+|text|text|null: false|
 |user_id|references, null|false, foreign_key: true|
 |item_id|references, null|false, foreign_key: true|
 
@@ -139,9 +139,9 @@ belongs_to :item
 ### Commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text :text|null: false｜
-|user_id|references, null|false, foreign_key: true|
-|item_id|references, null|false, foreign_key: true|
+|text|text|null: false|
+|user_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
 
 ### Association
 belongs_to :user
