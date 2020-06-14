@@ -20,8 +20,8 @@
 ### Association
 - has_many :items
 - has_one :address
-- has_one :creditcards
-- has_many :transaction
+- has_one :creditcard
+- has_many :transactions
 - has_many :likes
 - has_many :messages
 - has_many :comments
@@ -30,7 +30,7 @@
 ## Addressテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|nteger|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 |postal_code|string(7)|null: false, format: {with: /\A\d{3}[_]\d{4}\z/}|
 |prefectures|string|null: false|
 |city|string|null: false|
@@ -56,7 +56,7 @@
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|item_name|string|null: false|
+|name|string|null: false|
 |description|text|null: false|
 |brand|string|
 |condition|string|null: false|
@@ -70,7 +70,8 @@
 ### Association
 - belongs_to :user
 - belongs_to :category
-- has_many :transaction
+- has_many :images
+- has_many :transactions
 - has_many :likes
 - has_many :messages
 - has_many :comments
@@ -101,8 +102,8 @@ belongs_to :item
 ### Transactionテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references, null|false, foreign_key: true|
-|item_id|references, null|false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
 
 ### Association
 belongs_to :user
@@ -113,8 +114,8 @@ belongs_to :item
 ### Likesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references, null|false, foreign_key: true|
-|item_id|references, null|false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
 
 ### Association
 belongs_to :user
@@ -125,7 +126,7 @@ belongs_to :item
 ### Messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text :text|
+|text|text|null: false|
 |user_id|references, null|false, foreign_key: true|
 |item_id|references, null|false, foreign_key: true|
 
@@ -138,9 +139,9 @@ belongs_to :item
 ### Commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text :text|
-|user_id|references, null|false, foreign_key: true|
-|item_id|references, null|false, foreign_key: true|
+|text|text|null: false|
+|user_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
 
 ### Association
 belongs_to :user
