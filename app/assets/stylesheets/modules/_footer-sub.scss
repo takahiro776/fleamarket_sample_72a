@@ -1,0 +1,21 @@
+.FooterSub{
+  padding: 40px 0;
+  background-color: rgb(245, 245, 245);
+  p{
+    text-align: center;
+  }
+  &__top{
+    display: flex;
+    justify-content: center;
+    p{
+      padding: 0 16px;
+      margin-bottom: 40px;
+    }
+  }
+  img{
+    display: block;
+    margin: 0 auto;
+    width: 20%;
+    max-width: 185px;
+  }
+}
