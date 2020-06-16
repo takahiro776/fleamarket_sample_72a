@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   # protect_from_forgery with: :exception　一旦コメントアウトしてます
-
   before_action :basic_auth, if: :production?
   protect_from_forgery with: :exception
 
