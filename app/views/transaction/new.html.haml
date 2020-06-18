@@ -1,2 +1,37 @@
-%h1 Transaction#new
-%p Find me in app/views/transaction/new.html.haml
+= render "layouts/header-sub"
+
+.container
+  .inner
+    .BuyItem
+      .BuyItem__title
+        %p 購入内容確認
+      .BuyItem__product
+        %p.ProductImage ここに商品画像が入ります
+        .BuyItem__product__exp
+          %p テキスト
+          %p ¥1,000
+      .BuyItem__price
+        .BuyItem__price__inner
+          %p 支払い金額
+          %p ¥2,500
+        %p.point ポイントを使用(所持ポイント：P0)
+      .BuyItem__method
+        .BuyItem__method__top
+          %p 支払い方法
+          %a.change{:href => ""} 変更する
+        %p クレジットカード
+        %p 番号
+        %p 有効期限
+        %p ※カードのイメージが入る
+      .BuyItem__address
+        .BuyItem__address__top
+          %p 配送先
+          %a.change{:href => ""} 変更する
+        %p 郵便番号
+        %p 住所
+        %p 名前
+      .BuyItem__confirm
+        %p テキストテキスト
+        %button.btn 購入する
+
+= render "layouts/footer-sub"
