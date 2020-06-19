@@ -1,1 +1,103 @@
-%h1 出品画面
+-# %h1 出品画面
+.wrapper
+  .sell-main__container
+    .sell-main__content
+      %label.sell-main__image-title
+        出品画像
+        %span.sell-main__require
+          必須
+      %p.sell-main__image-guide
+        最大10枚までアップロードできます
+      .sell-main__image-box
+
+    .sell-main__content
+      .form-group
+        %label
+          商品名
+          %span.sell-main__require
+            必須
+    .sell-main__content
+      .form-group
+        %label
+          商品の説明
+          %span.sell-main__require
+            必須
+        -# = f.text_field method, class: "form-group__new-text-area", placeholder: "商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+
+    .sell-main__content
+      %h3.sell-block-name
+        商品の詳細
+        .form-group
+          %label
+            カテゴリー
+          %span.sell-main__require
+            必須
+        .form-group
+          %label
+            ブランド
+          %span.sell-main__ary
+            任意
+        .form-group
+          %label
+            商品の状態
+          %span.sell-main__require
+            必須
+
+    .sell-main__content
+      %h5.sell-block-name
+        配送について
+        .form-group
+          %label
+            配送料の負担
+          %span.sell-main__require
+            必須
+        .form-group
+          %label
+            発送元の地域
+          %span.sell-main__require
+            必須
+        .form-group
+          %label
+            発送までの日数
+          %span.sell-main__require
+            必須
+
+    .sell-main__content
+      %h7.sell-block-name
+        価格（¥300〜9,999,999）
+        .sell-price
+          %label
+            販売価格
+          %span.sell-main__require
+            必須
+        .sell-price-input
+          %p ¥
+        .sell-price-fee
+          %label
+            販売手数料（10%）
+        .sell-price-profit
+          %label
+            販売利益
+
+    .sell-main__btn
+      =link_to "#", class: "sell-main__btn sell-main__btn--sell" do
+        出品する
+      =link_to "#", class: "sell-main__btn sell-main__btn--save" do
+        下書きに保存
+      =link_to "#", class: "sell-main__btn sell-main__btn--return" do
+        もどる
+      .terms
+        %p
+          禁止されている
+          = link_to '行為', '#', target: 'blank', class: 'terms--links'
+          および
+          = link_to '出品物', '#', target: 'blank', class: 'terms--links'
+          を必ずご確認ください。
+          = link_to '偽ブランド品', '#', target: 'blank', class: 'terms--links'
+          や
+          = link_to '盗品物', '#', target: 'blank', class: 'terms--links'
+          などの販売は犯罪であり、法律に
+          %br
+          より処罰される可能性があります。また、出品をもちまして
+          = link_to '加盟店契約', '#', target: 'blank', class: 'terms--links'
+          に同意したことになります。
