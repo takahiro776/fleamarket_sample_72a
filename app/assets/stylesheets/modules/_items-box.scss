@@ -232,13 +232,13 @@
     left: 0;
     margin: auto;
     text-align: center;
-    .bottom-title{
+    &__title{
       color: #fff;
       font-size: 24px;
       font-weight: bolder;
       text-shadow:  0 0 5px rgba(0,0,0,0.4);
     }
-    .bottom-text{
+    &__text{
       color: #fff;
       font-size: 35px;
       margin: 15px 0 30px;
