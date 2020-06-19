@@ -1,21 +1,123 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.step-1
+
+  .step-1_header
+    .step-1_header__icon
+      = link_to root_path do
+        = image_tag "logo.png", class: "header_logo"
+
+    %nav.forward
+      %ul.forward-bar
+        %li.begin#begin
+          会員情報
+          .forward-dot#begin_forward-dot
+          .forward-dot_bar
+        %li.phone
+          電話番号認証
+          .forward-dot
+          .forward-dot_bar
+     
+        %li.end
+          完了
+          .forward-dot
+          .forward-dot_bar
+
+  .form-1
+    %h1fa
+      会員情報入力
+    .form-user
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = render "devise/shared/error_messages", resource: resource
+
+        .form-user__nickname
+          = f.label :ニックネーム
+          %span.form-require
+            必須
+          %br/
+          = f.text_field :name, placeholder: "例）メルカリ太郎", class: "input-default"
+
+        .form-user__email
+          = f.label :メールアドレス
+          %span.form-require
+            必須
+          %br/
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可", class: "input-default"
+
+        .form-user__password
+          = f.label :パスワード
+          %span.form-require
+            必須
+          - if @minimum_password_length
+            %em
+              (#{@minimum_password_length} characters minimum)
+          %br/
+          = f.password_field :name, autocomplete: "new-password", placeholder: "7文字以上の半角英数字", class: "input-default"
+          %p
+          ※ 英字と数字の両方を含めて設定してください
+          
+
+        .form-user__password
+          = f.label :確認用パスワード
+          %span.form-require
+            必須
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "7文字以上の半角英数字", class: "input-default"
+          %p
+          ※ 英字と数字の両方を含めて設定してください
+
+        .form-user__identification
+          本人確認
+          %p
+            安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+
+        .form-user__name
+          = f.label :お名前（全角）
+          %span.form-require
+            必須
+          .input-name
+            = f.text_field :name, placeholder: "例)山田", class: "input-default"
+            = f.text_field :name, placeholder: "例)彩", class: "input-default__lastname"
+
+        .form-user__name-kana
+          = f.label :お名前カナ（全角）
+          %span.form-require
+            必須
+          .input-name
+            = f.text_field :name, placeholder: "例)ヤマダ", class: "input-default"
+            = f.text_field :name, placeholder: "例)アヤ", class: "input-default__lastname"
+
+        .form-user__birthday
+          = f.label :生年月日
+          %span.form-require
+            必須
+          %br/
+          = f.text_field :name, placeholder: "1989（年）", class: "input-default"
+
+          = f.text_field :name, placeholder: "02（月）", class: "input-default"
+
+          = f.text_field :name, placeholder: "18（日）", class: "input-default"
+
+        .form-user__text
+          「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
+          = f.submit "次へ進む", class: "submit"
+
+          .form-user__text2
+            %p
+              本人情報の登録について
+            = icon "fas fa-angle-right", class: "fas fa-angle-right"
+
+  .step-1_fooder
+    %nav
+      %ul
+        %li
+          = link_to "プライバシーポリシー", root_path
+        %li
+          = link_to "フリーマケット利用規約", root_path
+        %li
+          = link_to "特定商取引に関する表記", root_path
+            
+
+    .fooder-image
+      = link_to root_path do
+        = image_tag "logo-white.png", class: "fooder_logo"
+
+          
