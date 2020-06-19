@@ -43,8 +43,8 @@
               ブランド
         %ul.header-nav__lists-right
           %li
-            %a{:href => '#', id: 'loginBtn'}
+            = link_to new_user_session_path, id: "loginBtn" do
               ログイン
           %li
-            %a{:href => '#', id: 'signupBtn'}
+            = link_to new_user_registration_path, id: "signupBtn" do
               新規会員登録
