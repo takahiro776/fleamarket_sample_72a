@@ -1,17 +1,52 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+
+.single-header
+  .single-header__title
+    =link_to "/", class: "title__btn" do
+      = image_tag "logo.png", size: "200x100", alt: "test"
+
+.new-signup
+  .new-signup-content
+    .new-signup-content__text
+      アカウントをお持ちでない方はこちら
+    .new-signup-content__btn
+      = link_to "新規会員登録", root_path, class: 'btn'
+      
+
+.sns-login
+  .sns-content
+    = link_to root_path , {class: "mail_text"} do
+      .sns-content__btn1
+        <i class="fab fa-facebook-square"></i>
+        Facebookでログイン
+    = link_to root_path , {class: "mail_text"} do
+      .sns-content__btn2
+        <i class="fab fa-google"></i>
+        Googleでログイン
+      
+   
+.login-body
+  .login
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .login__email
+        = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "input-login"
+      .login__password
+        = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: "input-login"
+      .login__actions
+        = f.submit "ログイン", class: "loginbtn"
+        //= render "devise/shared/links"
+      .login__forget
+        = link_to "パスワードをお忘れ方", root_path(resource_name), class: "forget"
+
+.single-footer
+  .single-footer__content
+    .single-footer__content__1
+      プライバシーポリシー
+    .single-footer__content__2
+      FURIMA利用規約
+    .single-footer__content__3
+      特定商取引に関する表記
+  .single-footer__image
+    =link_to "/", class: "title__btn" do
+      = image_tag "logo-white.png", size: "80x80", alt: "test"
+  .single-footer__text
+    © 2020 FURIMA
