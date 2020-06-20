@@ -1,91 +1,119 @@
--# %h1 出品画面
+= render “layouts/footer-main”
+
 .wrapper
   .sell-main__container
     .sell-main__content
-      %label.sell-main__image-title
-        出品画像
-        %span.sell-main__require
-          必須
-      %p.sell-main__image-guide
-        最大10枚までアップロードできます
-      .sell-main__image-box
+      .form-group
+        %label.form-group__image-title
+          出品画像
+          %span.form-group__require
+            必須
+        %p.form-group__image-guide
+          最大10枚までアップロードできます
+        .form-group__image-box
+          ドラックアンドドロップ
+          %br またはクリックしてファイルをアップロード
 
     .sell-main__content
       .form-group
         %label
           商品名
-          %span.sell-main__require
+          %span.form-group__require
             必須
-    .sell-main__content
+        .form-group__item-name
+          40文字まで
       .form-group
         %label
           商品の説明
-          %span.sell-main__require
+          %span.form-group__require
             必須
-        -# = f.text_field method, class: "form-group__new-text-area", placeholder: "商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+        .form-group__item-description
+          商品の説明（必須 1,000文字以内）
+          %br （色、素材、重さ、定価、注意点など）
+          %br 例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。
 
     .sell-main__content
-      %h3.sell-block-name
+      %h3.sell-main__block-name
         商品の詳細
-        .form-group
-          %label
-            カテゴリー
-          %span.sell-main__require
-            必須
-        .form-group
-          %label
-            ブランド
-          %span.sell-main__ary
-            任意
-        .form-group
-          %label
-            商品の状態
-          %span.sell-main__require
-            必須
+      .form-group
+        %label
+          カテゴリー
+        %span.form-group__require
+          必須
+        .form-group__category-select
+          選択してください
+      .form-group
+        %label
+          ブランド
+        %span.form-group__ary
+          任意
+        .form-group__brand-select
+          例) シャネル
+      .form-group
+        %label
+          商品の状態
+        %span.form-group__require
+          必須
+        .form-group__quality-select
+          選択してください
 
     .sell-main__content
-      %h5.sell-block-name
+      %h5.sell-main__block-name
         配送について
-        .form-group
-          %label
-            配送料の負担
-          %span.sell-main__require
-            必須
-        .form-group
-          %label
-            発送元の地域
-          %span.sell-main__require
-            必須
-        .form-group
-          %label
-            発送までの日数
-          %span.sell-main__require
-            必須
+      .form-group
+        %label
+          配送料の負担
+        %span.form-group__require
+          必須
+        .form-group__delivery-fee
+          選択してください
+      .form-group
+        %label
+          発送元の地域
+        %span.form-group__require
+          必須
+        .form-group__delivery_regions
+          選択してください
+      .form-group
+        %label
+          発送までの日数
+        %span.form-group__require
+          必須
+        .form-group__shipping_schedule
+          選択してください
 
-    .sell-main__content
-      %h7.sell-block-name
+    .price-group
+      %h7.sell-main__block-name
         価格（¥300〜9,999,999）
-        .sell-price
-          %label
-            販売価格
-          %span.sell-main__require
-            必須
+      .sell-price
+        %label
+          販売価格
+        %span.form-group__require
+          必須
         .sell-price-input
           %p ¥
-        .sell-price-fee
-          %label
-            販売手数料（10%）
-        .sell-price-profit
-          %label
-            販売利益
+          .sell-price-select
+            0
+      .sell-price-fee
+        %label
+          販売手数料（10%）
+          .right-bar
+            ー
+      .sell-price-profit
+        %label
+          販売利益
+          .right-bar-2
+            ー
 
-    .sell-main__btn
-      =link_to "#", class: "sell-main__btn sell-main__btn--sell" do
-        出品する
-      =link_to "#", class: "sell-main__btn sell-main__btn--save" do
-        下書きに保存
-      =link_to "#", class: "sell-main__btn sell-main__btn--return" do
-        もどる
+    .sell-main__content
+      .sell-main__btn
+        =link_to "#", class: "sell-main__btn--sell" do
+          出品する
+        =link_to "#", class: "sell-main__btn--save" do
+          下書きに保存
+        =link_to "#", class: "sell-main__btn--return" do
+          もどる
+          
       .terms
         %p
           禁止されている
@@ -101,3 +129,5 @@
           より処罰される可能性があります。また、出品をもちまして
           = link_to '加盟店契約', '#', target: 'blank', class: 'terms--links'
           に同意したことになります。
+
+= render “layouts/footer-main”
