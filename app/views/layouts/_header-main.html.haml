@@ -1,0 +1,50 @@
+.header-pc
+  .header-pc__header-inner
+    .header-main
+      .header-main__icon
+        %a{ :href => '/'}
+          = image_tag 'logo/logo.png', :size => '140x41'
+      .header-main__search-box
+        %form.search-inner
+          %input.search-inner__search-input{:placeholder => 'キーワードから探す'}
+          %button{type: "submit", class:'search-inner__submit-btn'}
+            .search-inner__submit-btn__icon
+              = image_tag 'icon/icon-search 1.png', :size => '20x20'
+    - if user_signed_in?
+      .header-nav
+        %ul.header-nav__lists-left
+          %li
+            %a{:href => '#', id: 'catBtn'}
+              カテゴリー
+          %li
+            %a{:href => '#', id: 'brandBtn'}
+              ブランド
+        %ul.header-nav__lists-right
+          %li
+            %a{:href => '#', id: 'loginBtn'}
+              いいね一覧
+          %li
+            %a{:href => '#', id: 'signupBtn'}
+              お知らせ
+          %li
+            %a{:href => '#', id: 'signupBtn'}
+              やることリスト
+          %li
+            %a{:href => '#', id: 'signupBtn'}
+              マイページ
+    - else
+      .header-nav
+        %ul.header-nav__lists-left
+          %li
+            %a{:href => '#', id: 'catBtn'}
+              カテゴリー
+          %li
+            %a{:href => '#', id: 'brandBtn'}
+              ブランド
+        %ul.header-nav__lists-right
+          %li
+            %a{:href => '#', id: 'loginBtn'}
+              ログイン
+          %li
+            %a{:href => '#', id: 'signupBtn'}
+              新規会員登録

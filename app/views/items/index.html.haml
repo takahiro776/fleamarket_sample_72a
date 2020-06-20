@@ -1,3 +1,78 @@
-%h1 Items#index
-%p Find me in app/views/items/index.html.erb
-%p Basic認証のテスト確認で文章を追加しました。
+= render "layouts/header-main"
+.wrapper
+  %section.topMain
+    .topMain__content
+      .topMain__content__banner
+        %h1.main-title あなたの欲しいがみつかるフリマアプリ
+        %p.sub-title FURIMAは誰でも簡単に出品・購入できるフリマアプリです
+        .app-icon
+          = link_to "#" do
+            = image_tag 'icon/google-play-badge.png', alt: "apple-badge", class: "LinkIcon abtn"
+          = link_to "#" do
+            = image_tag 'icon/google-play-badge.png', alt: "google-badge", class: "LinkIcon gbtn"
+  %section.fsIntroduction
+    %h2.title FURIMAが選ばれる3つの理由
+    %ul.lists
+      %li.list
+        .list__image
+          %span.number 1
+          = image_tag 'pict/pict-reason-01.jpg', alt: "画像１"
+        %h3.list__text
+          %span> 3分
+          ですぐに出品
+        %p.list__description
+          スマホで入力するだけで簡単に出品できる！
+      %li.list
+        .list__image
+          %span.number 2
+          = image_tag 'pict/pict-reason-02.jpg', alt: "画像2"
+        %h3.list__text
+          %span シンプルで使いやすい
+        %p.list__description めんどくさい入力は必要なく検索も購入もスムーズ！
+      %li.list
+        .list__image
+          %span.number 3
+          = image_tag 'pict/pict-reason-03.jpg', alt: "画像3"
+        %h3.list__text
+          %span> 手数料 業界最安
+        %p.list__description 最大3%でお得に出品・購入できる！
+  %section.sdIntroduction
+    %h2.title FURIMAの3つの特徴
+    %ul.lists
+      %li.list
+        .list__icon
+          %span.number 1
+          = image_tag 'icon/icon-01.png', alt: "アイコン１"
+        %h3.list__text
+          %span かんたんに売り買いできる
+        %p.list__description
+          スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+      %li.list
+        .list__icon
+          %span.number 2
+          = image_tag 'icon/icon-03.png', alt: "アイコン2"
+        %h3.list__text 売上金は即日振込み対応
+        %p.list__description
+          午前9時までに振込みを依頼頂ければ、翌日に指定口座に入金いたします！
+      %li.list
+        .list__icon
+          %span.number 3
+          = image_tag 'icon/icon-04.png', alt: "アイコン3"
+        %h3.list__text 多様な決済方法
+        %p.list__description
+          お支払いは、クレジットカードだけではなく、ポイントや売上金など様々な決済方法をお選びできます！
+  = render "items-box"
+%aside.bottom-content
+  .bottom-content__banner
+    %h2.bottom-content__banner__title スマホでかんたん フリマアプリ
+    %p.bottom-content__banner__text 今すぐ無料ダウンロード !
+    .app-icon
+      = link_to "#" do
+        = image_tag 'icon/google-play-badge.png', alt: "画像１", class: "LinkIcon abtn"
+      = link_to "#" do
+        = image_tag 'icon/google-play-badge.png', alt: "画像１", class: "LinkIcon gbtn"
+= link_to "#" do
+  .exhibitionBtn
+    %span.exhibitionBtn__text 出品
+    = image_tag 'icon/icon_camera.png', alt: "画像１", class: "exhibitionBtn__icon"
+= render "layouts/footer-main"
