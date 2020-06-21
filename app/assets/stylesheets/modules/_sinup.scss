@@ -1,0 +1,377 @@
+$red: #ea352d;
+$blue: #86D6FC;
+
+@mixin input {
+  width: 100%;
+  margin: 8px 0 0;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  line-height: 1.5;
+  font-size: 16px;
+  height: 30px;
+  &:focus{
+    border: 1px solid $blue;
+    outline: 0;
+  }
+}
+@mixin  require{
+  background: $red;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;
+}
+@mixin ul{
+  list-style: none;
+  color: $red;
+  font-size: 14px;
+  li{
+    margin: 8px 0 0;
+    line-height: 1.5;
+  }  
+}
+
+
+.step-1{
+  color: #333;
+  text-align: center;
+  background-color: #F5F5F5;
+
+  .step-1_header{
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+    &__icon{
+      .header_logo{
+        width: 180px;
+        padding-right: 44px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .form-1{
+    width: 700px;
+    background-color: white;
+    margin: 0 auto;
+    font-size: 14px;
+    h1{
+      font-size: 22px;
+      font-weight: bold;
+      padding: 32px;
+      border-bottom: solid 1px #c1c1c14f;
+    }
+    .form-user{
+      padding: 40px 180px;
+      text-align: left;
+
+      &__nickname{
+        label{
+          font-weight: 600;
+        }
+        .form-require{
+          @include require;
+        }
+        .input-default{
+          @include input;
+        }
+        ul{
+          @include ul;
+        }
+      }
+
+      &__email{
+        margin-top: 32px;
+        label{
+          font-weight: 600;
+        }
+        .form-require{
+          @include require;
+        }
+        .input-default{
+          @include input;
+        }
+        ul{
+          @include ul;
+        }
+      }
+
+      &__email{
+        margin-top: 32px;
+        label{
+          font-weight: 600;
+        }
+        .form-require{
+          @include require;
+        }
+        .input-default{
+          @include input;
+        }
+        ul{
+          @include ul;
+        }
+      }
+
+      &__password{
+        margin-top: 32px;
+        label{
+          font-weight: 600;
+        }
+        .form-require{
+          @include require;
+        }
+        .input-default{
+          @include input;
+        }
+        ul{
+          @include ul;
+        }
+        p{
+          color: #888;
+          margin: 8px 0 8px 0;
+        }
+        .check_box{
+          margin: 16px 0 0;
+          position: relative;
+          .checkbox-input{
+            display: none;
+            .icon_check{
+              position: absolute;
+              top: 50%;
+              left: 0;
+              z-index: 1;
+              width: 20px;
+              height: 20px;
+              border-radius: 2px;
+              background: #fff;
+              border: 1px solid #ccc;
+              font-size: 10px;
+              line-height: 17px;
+              text-align: center;
+              color: #fff;
+              vertical-align: middle;
+            }
+            label{
+              font-weight: 100;
+            }
+          }
+        }
+      }
+
+      &__identification{
+        margin-top: 32px;
+        font-size: 16px;
+        font-weight: 600;
+        p{
+          margin: 8px 0 0;
+          font-weight: 100;
+          font-size: 14px;
+        }
+      }
+
+      &__name{
+        margin-top: 32px;
+        label{
+          font-weight: 600;
+        }
+        .form-require{
+          @include require;
+        }
+        .input-name{
+          display: flex;
+          .input-default{
+            @include input;
+          }
+          .input-default__lastname{
+            @include input;
+            margin-left: 8px;
+          }
+        }
+        ul{
+          @include ul;
+        }
+      }
+
+      &__name-kana{
+        margin-top: 32px;
+        label{
+          font-weight: 60
+        }
+        .form-require{
+          @include require;
+        }
+        .input-name{
+          display: flex;
+          .input-default{
+            @include input;
+          }
+          .input-default__lastname{
+            @include input;
+            margin-left: 8px;
+          }
+        }
+        ul{
+          @include ul;
+        }
+      }
+
+      &__birthday{
+        margin-top: 32px;
+        label{
+          font-weight: 600;
+        }
+        .form-require{
+          @include require;
+        }
+        .input-default{
+          @include input;
+        }
+        ul{
+          @include ul;
+        }
+        p{
+          margin: 8px 0 0;
+          font-weight: 100;
+          color: #888;
+        }
+      }
+
+      &__text{
+        margin-top: 32px;
+        text-align: center;
+      }
+
+      .submit{
+        margin: 24px 0 0;
+        background: $red;
+        border: 1px solid $red;
+        color: #fff;
+        width: 100%;
+        line-height: 48px;
+        font-size: 14px;
+        cursor: pointer;
+      }
+
+      &__text2{
+        margin-top: 32px;
+        text-align: right;
+        color: $blue;
+        text-decoration: none;
+        display: flex;
+        justify-content: flex-end;
+        .fa-angle-right{
+          font-size: 20px;
+        }
+      }
+    }
+  }
+
+  .step-1_fooder{
+    width: 456px;
+    height: 220px;
+    margin: 0 auto;
+    padding: 40px 0;
+    nav{
+      ul{
+        list-style: none;
+        li{
+          display: inline-block;
+          color: #333;
+          font-size: 12px;
+          padding-left: 10px;
+          a{
+            text-decoration: none;
+            cursor: pointer;
+          }
+          a:visited{
+            color: #333;
+          }
+        }
+      }
+    }
+    .fooder_logo{
+      width: 80px;
+      padding-top: 30px;
+      padding-bottom: 10px;
+      cursor: pointer;
+    }
+    p{
+      font-size: 13px;
+    }
+  }
+}
+
+.forward-dot_bar {
+  position: absolute;
+  left: 50%;
+  top: 31px;
+  bottom: 5px;
+  display: block;
+  width: 130px;
+  height: 2px;
+  background: gray;
+  z-index: 10;
+  }
+  
+  .end .forward-dot_bar {
+  width: 0px;
+  }
+  .payment .forward-dot_bar {
+  width: 100px;
+  }
+  
+  
+  
+  
+  #begin{
+    color: #ea352d;
+    &_forward-dot{
+      background: #ea352d;
+    }
+    &_forward-dot_bar{
+      background: #ea352d;
+    }
+  }
+  
+  #phone{
+    color: #ea352d;
+    &_forward-dot{
+      background: #ea352d;
+    }
+    &_forward-dot_bar{
+      background: #ea352d;
+    }
+  }
+  
+  #address{
+    color: #ea352d;
+    &_forward-dot{
+      background: #ea352d;
+    }
+    &_forward-dot_bar{
+      background: #ea352d;
+    }
+  }
+  
+  #payment{
+    color: #ea352d;
+    &_forward-dot{
+      background: #ea352d;
+    }
+    &_forward-dot_bar{
+      background: #ea352d;
+    }
+  }
+  
+  #end{
+    color: #ea352d;
+    &_forward-dot{
+      background: #ea352d;
+    }
+    &_forward-dot_bar{
+      background: #ea352d;
+    }
+  }
