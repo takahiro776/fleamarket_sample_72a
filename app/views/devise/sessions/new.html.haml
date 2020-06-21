@@ -1,14 +1,10 @@
-
-.single-header
-  .single-header__title
-    =link_to "/", class: "title__btn" do
-      = image_tag "logo.png", size: "200x100", alt: "test"
+= render "layouts/header-main"
 
 .new-signup
-  .new-signup-content
-    .new-signup-content__text
+  .new-signup__content
+    .new-signup__content--text
       アカウントをお持ちでない方はこちら
-    .new-signup-content__btn
+    .new-signup__content--btn
       = link_to "新規会員登録", root_path, class: 'btn'
       
 
@@ -37,16 +33,4 @@
       .login__forget
         = link_to "パスワードをお忘れ方", root_path(resource_name), class: "forget"
 
-.single-footer
-  .single-footer__content
-    .single-footer__content__1
-      プライバシーポリシー
-    .single-footer__content__2
-      FURIMA利用規約
-    .single-footer__content__3
-      特定商取引に関する表記
-  .single-footer__image
-    =link_to "/", class: "title__btn" do
-      = image_tag "logo-white.png", size: "80x80", alt: "test"
-  .single-footer__text
-    © 2020 FURIMA
+= render "layouts/footer-main"

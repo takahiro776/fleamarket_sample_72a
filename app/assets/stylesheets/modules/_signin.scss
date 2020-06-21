@@ -1,18 +1,18 @@
 .new-signup {
   display: block;
   background: whitesmoke;
-  .new-signup-content {
+  &__content {
     margin: 0 auto;
     width: 460px;
     background: white;
     text-align: center;
     padding-top: 30px;
     border-bottom: 1px solid whitesmoke;
-    ＆__text {
+    ＆--text {
       font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
       font-size: 14px;
     }
-    &__btn {
+    &--btn {
       background: #0199E8;
       border: 1px solid #0199E8;
       color: #fff;
