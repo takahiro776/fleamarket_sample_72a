@@ -265,10 +265,16 @@
 }
 
 .terms {
-  width: 600px;
+  width: 620px;
   height: 32px;
-  font-size: 11px;
-  color: #333333;
-  margin-top: 24px;
-  margin: 0 auto;
+  display: inline-block;
+  p {
+    font-size: 11px;
+    color: #333333;
+    padding: 0 10px;
+  }
+  .terms--links {
+    text-decoration: none;
+    color: #66CCFF;
+  }
 }
