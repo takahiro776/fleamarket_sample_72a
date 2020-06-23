@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200623113601) do
+ActiveRecord::Schema.define(version: 20200623214527) do
+
+  create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "postal_code",    limit: 7, null: false
+    t.string   "prefectures",              null: false
+    t.string   "ctiy",                     null: false
+    t.string   "block_number",             null: false
+    t.string   "apartment_name"
+    t.integer  "user_id",                  null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id", using: :btree
+  end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
@@ -57,6 +69,7 @@ ActiveRecord::Schema.define(version: 20200623113601) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "addresses", "users"
   add_foreign_key "images", "items"
   add_foreign_key "items", "categories"
 end
