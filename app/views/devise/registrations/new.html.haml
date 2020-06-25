@@ -1,9 +1,12 @@
+= render "layouts/header-main"
+
 .step-1
 
-  .step-1_header
-    .step-1_header__icon
-      = link_to root_path do
-        = image_tag "logo.png", class: "header_logo"
+
+  -# .step-1_header
+  -#   .step-1_header__icon
+  -#     = link_to root_path do
+  -#       = image_tag "logo.png", class: "header_logo"
 
     %nav.forward
       %ul.forward-bar
@@ -33,7 +36,7 @@
           %span.form-require
             必須
           %br/
-          = f.text_field :name, placeholder: "例）メルカリ太郎", class: "input-default"
+          = f.text_field :nickname, placeholder: "例）メルカリ太郎", class: "input-default"
 
         .form-user__email
           = f.label :メールアドレス
@@ -50,7 +53,7 @@
             %em
               (#{@minimum_password_length} characters minimum)
           %br/
-          = f.password_field :name, autocomplete: "new-password", placeholder: "7文字以上の半角英数字", class: "input-default"
+          = f.password_field :password, autocomplete: "new-password", placeholder: "7文字以上の半角英数字", class: "input-default"
           %p
           ※ 英字と数字の両方を含めて設定してください
           
@@ -60,7 +63,7 @@
           %span.form-require
             必須
           %br/
-          = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "7文字以上の半角英数字", class: "input-default"
+          = f.password_field :password_conform, autocomplete: "new-password", placeholder: "7文字以上の半角英数字", class: "input-default"
           %p
           ※ 英字と数字の両方を含めて設定してください
 
@@ -74,27 +77,27 @@
           %span.form-require
             必須
           .input-name
-            = f.text_field :name, placeholder: "例)山田", class: "input-default"
-            = f.text_field :name, placeholder: "例)彩", class: "input-default__lastname"
+            = f.text_field :family_name, placeholder: "例)山田", class: "input-default"
+            = f.text_field :first_name, placeholder: "例)彩", class: "input-default__lastname"
 
         .form-user__name-kana
           = f.label :お名前カナ（全角）
           %span.form-require
             必須
           .input-name
-            = f.text_field :name, placeholder: "例)ヤマダ", class: "input-default"
-            = f.text_field :name, placeholder: "例)アヤ", class: "input-default__lastname"
+            = f.text_field :family_name_kana, placeholder: "例)ヤマダ", class: "input-default"
+            = f.text_field :first_name_kana, placeholder: "例)アヤ", class: "input-default__lastname"
 
         .form-user__birthday
           = f.label :生年月日
           %span.form-require
             必須
           %br/
-          = f.text_field :name, placeholder: "1989（年）", class: "input-default"
+          = f.text_field :birth_year, placeholder: "1989（年）", class: "input-default"
 
-          = f.text_field :name, placeholder: "02（月）", class: "input-default"
+          = f.text_field :birth_month, placeholder: "02（月）", class: "input-default"
 
-          = f.text_field :name, placeholder: "18（日）", class: "input-default"
+          = f.text_field :birth_day, placeholder: "18（日）", class: "input-default"
 
         .form-user__text
           「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
@@ -105,19 +108,6 @@
               本人情報の登録について
             = icon "fas fa-angle-right", class: "fas fa-angle-right"
 
-  .step-1_fooder
-    %nav
-      %ul
-        %li
-          = link_to "プライバシーポリシー", root_path
-        %li
-          = link_to "フリーマケット利用規約", root_path
-        %li
-          = link_to "特定商取引に関する表記", root_path
-            
+= render "layouts/footer-main"
 
-    .fooder-image
-      = link_to root_path do
-        = image_tag "logo-white.png", class: "fooder_logo"
-
-          
+  
