@@ -1,0 +1,215 @@
+///mixin///
+@mixin flex {
+  display: flex;
+  align-items: center;
+}
+
+@mixin required {
+  background-color: #ff0000;
+  margin-left: 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;
+}
+
+@mixin any {
+  background: #ccc;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;
+}
+
+@mixin inner {
+  max-width: 343px;
+  margin: 0 auto;
+}
+
+@mixin input {
+  width: 100%;
+  margin-top: 8px;
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+///main///
+.container{
+  padding-top: 24px;
+}
+.address{
+  width: 90%;
+  margin: 0 auto;
+  &__top{
+    p{
+      font-size: 24px;
+      font-weight: bold;
+    }
+    background-color: #fff;
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 8px 24px;
+  }
+  &__inner{
+    background-color: #fff;
+    padding: 24px 16px 40px;
+    &__name{
+      @include inner;
+      &__top{
+        @include flex;
+        p{
+          font-weight: bold;
+        }
+        &--required{
+          @include required();
+        }
+      }
+      &__form{
+        input{
+          @include input;
+        }
+      }
+    }
+
+    &__kana{
+      @include inner;
+      margin-top: 24px;
+      &__top{
+        @include flex;
+        p{
+          font-weight: bold;
+        }
+        &--required{
+          @include required();
+        }
+      }
+      &__form{
+        input{
+          @include input;
+        }
+      }
+    }
+
+    &__ZipCode{
+      @include inner;
+      margin-top: 24px;
+      &__top{
+        @include flex;
+        p{
+          font-weight: bold;
+        }
+        &--required{
+          @include required();
+        }
+      }
+      &__form{
+        input{
+          @include input;
+        }
+      }
+    }
+
+    &__prefectures{
+      @include inner;
+      margin-top: 24px;
+      &__top{
+        @include flex;
+        p{
+          font-weight: bold;
+        }
+        &--required{
+          @include required();
+        }
+      }
+      &__form{
+        input{
+          @include input;
+        }
+      }
+    }
+
+    &__city{
+      @include inner;
+      margin-top: 24px;
+      &__top{
+        @include flex;
+        p{
+          font-weight: bold;
+        }
+        &--required{
+          @include required();
+        }
+      }
+      &__form{
+        input{
+          @include input;
+        }
+      }
+    }
+
+    &__BlockNumber{
+      @include inner;
+      margin-top: 24px;
+      &__top{
+        @include flex;
+        p{
+          font-weight: bold;
+        }
+        &--required{
+          @include required();
+        }
+      }
+      &__form{
+        input{
+          @include input;
+        }
+      }
+    }
+
+    &__apartment{
+      @include inner;
+      margin-top: 24px;
+      &__top{
+        @include flex;
+        p{
+          font-weight: bold;
+        }
+        &--any{
+          @include any;
+        }
+      }
+      &__form{
+        input{
+          @include input;
+        }
+      }
+    }
+
+    &__btn{
+      margin: 0 auto;
+      margin-top: 24px;
+      background: #ea352d;
+      border: 1px solid #ea352d;
+      color: #fff;
+      max-width: 343px;
+      line-height: 48px;
+      font-size: 14px;
+      border-radius: 4px;
+      border: 1px solid transparent;
+      -webkit-transition: all ease-out .3s;
+      transition: all ease-out .3s;
+      cursor: pointer;
+      text-align: center;
+    }
+
+   
+  }
+}
