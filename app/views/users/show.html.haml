@@ -1,2 +1,121 @@
-%h1 Users#show
-%p Find me in app/views/users/show.html.haml
+= render "layouts/header-main"
+.wrapper
+  .mypg-main
+    .mypg-container
+      .mypg-side
+        %nav.mypg-side-bar
+          %ul.mypg-side-bar__list
+            %li 
+              = link_to "#" do
+                .mypg-side-bar__list-item マイページ
+              %i.icon-arrow-right
+            %li 
+              = link_to "#" do
+                いいね！一覧
+              %i.icon-arrow-right
+            %li 
+              = link_to "#" do
+                出品する
+              %i.icon-arrow-right
+            %li 
+              = link_to "#" do
+                出品した商品 - 出品中
+              %i.icon-arrow-right
+            %li 
+              = link_to "#" do
+                出品した商品 - 取引中
+              %i.icon-arrow-right
+            %li 
+              = link_to "#" do
+                出品した商品 - 売却済み
+              %i.icon-arrow-right
+            %li 
+              = link_to "#" do
+                購入した商品 - 取引中
+              %i.icon-arrow-right
+            %li 
+              = link_to "#" do
+                購入した商品 - 過去の取引
+              %i.icon-arrow-right
+            %li 
+              = link_to "#" do
+                お問い合わせ
+              %i.icon-arrow-right
+          %h3.mypg-side-bar__lists__nav-head 設定
+          %ul.mypg-side-bar__list
+            %li 
+              = link_to "#" do
+                プロフィール
+              %i.icon-arrow-right
+            %li 
+              = link_to "#" do
+                発売元・お届け先住所変更
+              %i.icon-arrow-right
+            %li 
+              = link_to "#" do
+                支払い方法
+              %i.icon-arrow-right
+            %li 
+              = link_to "#" do
+                メール/パスワード
+              %i.icon-arrow-right
+            %li 
+              = link_to "#" do
+                本人情報
+              %i.icon-arrow-right
+            %li 
+              = link_to "#" do
+                電話番号の確認
+              %i.icon-arrow-right
+            %li 
+              = link_to "#" do
+                ログアウト
+              %i.icon-arrow-right
+      .mypage-contents
+        %section.mypage-contents__user-icon
+          .mypage-contents__user-icon__top
+            = link_to "#" do
+              = image_tag 'icon/member_photo_noimage_thumb.png', alt: "画像１", class: "userIconBtn"
+              .mypage-contents__user-icon__text
+                %p 評価 0
+                %p 出品数 0
+        %section.mypage-contents__tabs
+          %h2.mypage-contents__tabs__head 購入した商品
+          %ul.mypage-tabs
+            %li.active
+              %h3
+                = link_to "#" do
+                  取引中
+            %li
+              %h3
+                = link_to "#" do
+                  過去の取引
+        %section.tab-content
+          %ul.mypage-item-list
+            %li 
+              = link_to "#" do
+                .mypage-item-list__item 取引中 1
+              %i.icon-arrow-right
+            %li 
+              = link_to "#" do
+                %p 取引中 2
+              %i.icon-arrow-right
+            %li 
+              = link_to "#" do
+                %p 取引中 3
+              %i.icon-arrow-right
+%aside.bottom-content
+  .bottom-content__banner
+    %h2.bottom-title スマホでかんたん フリマアプリ
+    %p.bottom-text 今すぐ無料ダウンロード !
+    .app-icon
+      = link_to "#" do
+        = image_tag 'icon/google-play-badge.png', alt: "画像１", class: "LinkIcon abtn"
+      = link_to "#" do
+        = image_tag 'icon/google-play-badge.png', alt: "画像１", class: "LinkIcon gbtn"
+= link_to "#" do
+  .exhibitionBtn
+    %span.exhibitionBtn__text 出品
+    = image_tag 'icon/icon_camera.png', alt: "画像１", class: "exhibitionBtn__icon"
+= render "layouts/footer-main"
+
