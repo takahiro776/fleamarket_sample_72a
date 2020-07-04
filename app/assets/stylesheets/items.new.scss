@@ -28,6 +28,7 @@
     text-align: center;
     margin: 0 130px 32px;
       &--sell {
+        width: 360px;
         background: #3CCACE;
         font-size: 17px;
         color: #fff;
@@ -37,6 +38,7 @@
         cursor: pointer;
         line-height: 48px;
         border-radius: 5px;
+        border: none;
         &:hover {
           background-color: rgb(49, 171, 175);
         }
@@ -92,13 +94,22 @@
     display: inline-block;
     width: 620px;
     height: 150px;
+    background-color: #eeeeee;
     border: dashed 1px #bfbfbf;
     margin-top: 16px;
+    padding-top: 40px;
+    text-align: center;
+    cursor: pointer;
+    input {
+      display: none;
+    }
+    &__icon {
+    }
   }
 
   &__item-name {
     display: inline-block;
-    width: 586px;
+    width: 620px;
     height: 48px;
     border: solid 1px #bfbfbf;
     border-radius: 5px;
@@ -110,7 +121,7 @@
 
   &__item-description {
     display: inline-block;
-    width: 586px;
+    width: 620px;
     height: 140px;
     border: solid 1px #bfbfbf;
     border-radius: 5px;
@@ -121,7 +132,7 @@
 
   &__category-select {
     display: inline-block;
-    width: 586px;
+    width: 620px;
     height: 48px;
     border: solid 1px #bfbfbf;
     border-radius: 5px;
@@ -133,7 +144,7 @@
 
   &__brand-select {
     display: inline-block;
-    width: 586px;
+    width: 620px;
     height: 48px;
     border: solid 1px #bfbfbf;
     border-radius: 5px;
@@ -143,9 +154,9 @@
     font-weight: normal;
   }
 
-  &__quality-select {
+  #item_condition {
     display: inline-block;
-    width: 586px;
+    width: 620px;
     height: 48px;
     border: solid 1px #bfbfbf;
     border-radius: 5px;
@@ -155,9 +166,9 @@
     font-weight: normal;
   }
 
-  &__delivery-fee {
+  #item_delivery_fee {
     display: inline-block;
-    width: 586px;
+    width: 620px;
     height: 48px;
     border: solid 1px #bfbfbf;
     border-radius: 5px;
@@ -167,9 +178,9 @@
     font-weight: normal;
   }
 
-  &__delivery_regions {
+  #item_delivery_regions {
     display: inline-block;
-    width: 586px;
+    width: 620px;
     height: 48px;
     border: solid 1px #bfbfbf;
     border-radius: 5px;
@@ -179,9 +190,9 @@
     font-weight: normal;
   }
 
-  &__shipping_schedule {
+  #item_shipping_schedule {
     display: inline-block;
-    width: 586px;
+    width: 620px;
     height: 48px;
     border: solid 1px #bfbfbf;
     border-radius: 5px;
