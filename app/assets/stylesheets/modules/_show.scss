@@ -59,12 +59,16 @@
           font-size: 18px;
           line-height: 48px;
           background-color: #3ccace;
-          border: 1px solid #3ccace;
+          border: none;
           color: #fff;
           width: 60%;
           border-radius: 10px;
           margin-top: 30px;
           margin: 15px auto;
+          cursor: pointer;
+        }
+        .buy-btn:hover {
+          background-color: rgb(172, 172, 172);
         }
       }
       &__description{
@@ -172,10 +176,13 @@ td {
     font-size: 18px;
     line-height: 48px;
     background-color: #3ccace;
-    border: 1px solid #3ccace;
+    border: none;
     color: #fff;
     width: 60%;
     border-radius: 100px;
+  }
+  .comment-btn:hover {
+    background-color: rgb(172, 172, 172);
   }
 }
 

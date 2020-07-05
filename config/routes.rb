@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :items, only:[:new, :show]
   resources :users, only:[:show]
   resources :transaction, only:[:new]
+  resources :credit_cards, only: [:new, :create, :show, :delete]
 end

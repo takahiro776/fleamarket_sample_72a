@@ -44,7 +44,7 @@
       width: 700px;
       &__user-icon{
         height: 200px;
-        background-image: url(pict/bg-mainVisual-pict_pc.jpg);
+        background-image: image-url("pict/bg-mainVisual-pict_pc.jpg");
         background-repeat: no-repeat;
         background-size: 100%;
         background-position: center;
@@ -131,7 +131,7 @@
 
 .bottom-content{
   height: 300px;
-  background-image: url(pict/bg-appBanner-pict.jpg);
+  background-image: image-url("pict/bg-appBanner-pict.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
