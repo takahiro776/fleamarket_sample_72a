@@ -30,7 +30,7 @@
             %a{:href => '#', id: 'signupBtn'}
               やることリスト
           %li
-            %a{:href => '#', id: 'signupBtn'}
+            = link_to users_show_path, id: 'signupBtn' do
               マイページ
     - else
       .header-nav
