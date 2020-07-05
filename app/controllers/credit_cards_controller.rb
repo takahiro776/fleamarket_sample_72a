@@ -11,11 +11,13 @@ class CreditCardsController < ApplicationController
       card: params[:card_token],
       metadata: {user_id: current_user.id}
     )
+
     @card = CreditCard.new(
       card_id: customer.default_card,
       customer_id: customer.id,
       user_id: current_user.id
     )
+    # binding.pry
     if @card.save
       redirect_to action: "show",  id: @card.user_id
     else

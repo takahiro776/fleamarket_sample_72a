@@ -13,7 +13,6 @@ $(function() {
     };
 
     Payjp.createToken(card, function(status, response) {
-      console.log(status)
       if (status === 200) {
         $("#card_number").removeAttr("name");
         $("#exp_month").removeAttr("name");
