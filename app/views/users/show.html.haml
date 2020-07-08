@@ -68,7 +68,7 @@
                 電話番号の確認
               %i.icon-arrow-right
             %li 
-              = link_to "#" do
+              = link_to destroy_user_session_path, method: :delete do
                 ログアウト
               %i.icon-arrow-right
       .mypage-contents

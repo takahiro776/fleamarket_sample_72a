@@ -1,0 +1,61 @@
+.container
+  = form_for @address, url:addresses_path ,method: :post do |f|
+    .address
+      .address__top
+        %P 発送元・お届け先住所登録
+      .address__inner
+        -# .address__inner__name
+        -#   .address__inner__name__top
+        -#     %p.address__inner__name__top--title お名前
+        -#     %p.address__inner__name__top--required 必須
+        -#   .address__inner__name__form
+        -#     = f.text_field :family_name, placeholder: "例)山田", class: "input-default"
+        -#     = f.text_field :first_name, placeholder: "例)彩", class: "input-default_lastname"
+
+        -# .address__inner__kana
+        -#   .address__inner__kana__top
+        -#     %p.address__inner__kana__top--title お名前カナ
+        -#     %p.address__inner__kana__top--required 必須
+        -#   .address__inner__kana__form
+        -#     = f.text_field :family_name_kana, placeholder: "例)ヤマダ", class: "input-default"
+        -#     = f.text_field :first_name_kana, placeholder: "例)アヤ", class: "input-default__lastname"
+
+        .address__inner__ZipCode
+          .address__inner__ZipCode__top
+            %p.address__inner__ZipCode__top--title 郵便番号
+            %p.address__inner__ZipCode__top--required 必須
+          .address__inner__ZipCode__form
+            = f.text_field :postal_code, pleceholder: "例)123-4567"
+
+        .address__inner__prefectures
+          .address__inner__prefectures__top
+            %p.address__inner__prefectures__top--title 都道府県
+            %p.address__inner__prefectures__top--required 必須
+          .address__inner__prefectures__form
+            = f.text_field :prefectures, pleceholder: "例) 福岡県"
+      
+        .address__inner__city
+          .address__inner__city__top
+            %p.address__inner__city__top--title 市区町村
+            %p.address__inner__city__top--required 必須
+          .address__inner__city__form
+            = f.text_field :ctiy, placeholder: "例) 横浜市緑区"
+      
+        .address__inner__BlockNumber
+          .address__inner__BlockNumber__top
+            %p.address__inner__BlockNumber__top--title 番地
+            %p.address__inner__BlockNumber__top--required 必須
+          .address__inner__BlockNumber__form
+            = f.text_field :block_number, placeholder: "例) 青山1-1-1"
+      
+        .address__inner__apartment
+          .address__inner__apartment__top
+            %p 建物名
+            %p.address__inner__apartment__top--any 任意
+          .address__inner__apartment__form
+            = f.text_field :apartment_name,placeholder: "例) 柳ビル103"
+      
+        .address__inner__btn 
+          = f.submit "変更する", class: "submit"
+
+      
