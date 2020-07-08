@@ -198,7 +198,7 @@ $blue: #86D6FC;
       &__name-kana{
         margin-top: 32px;
         label{
-          font-weight: 60
+          font-weight: 600;
         }
         .form-require{
           @include require;
