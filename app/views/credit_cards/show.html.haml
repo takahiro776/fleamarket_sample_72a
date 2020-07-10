@@ -1,2 +1,31 @@
-%h1 CreditCards#show
-%p 登録完了しました！！（仮ページ）
+= render "layouts/header-main"
+
+.wrapper
+  .paymethod
+    .paymethod__top
+      支払い方法
+    .paymethod__card
+      .paymethod__card__exp
+        .paymethod__card__exp--title クレジットカード一覧
+        .paymethod__card__exp__img
+          - if @card_info[:brand] == 'Visa'
+            = image_tag 'logo/logo_visa.gif', :size => '31x20'
+          - elsif @card_info[:brand] == 'MasterCard'
+            = image_tag 'logo/logo_mastercard.gif', :size => '31x20'
+          - elsif @card_info[:brand] == 'JCB'
+            = image_tag 'logo/jcb-logo.gif', :size => '26x20'
+          - elsif @card_info[:brand] == 'American Express'
+            = image_tag 'logo/amex-logo.gif', :size => '20x20'
+          - elsif @card_info[:brand] == 'Diners Club'
+            = image_tag 'logo/diners-logo.gif', :size => '28x20'
+          - else @card_info[:brand] == 'Discover'
+            = image_tag 'logo/discover-logo.gif', :size => '32x20'
+          %button
+            = link_to "削除する", delete_credit_card_path(params[:id]), method: :delete
+        %p
+          = "***********" +  @card_info[:last4]
+        %p
+          - year =  @card_info[:exp_year].to_s.slice(2,2)
+          = @card_info[:exp_month].to_s + "/" + year
+  
+= render "layouts/footer-main"

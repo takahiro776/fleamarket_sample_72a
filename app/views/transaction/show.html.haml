@@ -28,13 +28,12 @@
           %a.change{:href => ""} 変更する
         %p クレジットカード
         %p
-          ************
-          = @card[:last4]
+          = "***********" +  @card[:last4]
         %p 
           有効期限
-          = @card[:exp_month]
-          &frasl;
-          = @card[:exp_year]
+          - year =  @card[:exp_year].to_s.slice(2,2)
+          = @card[:exp_month].to_s + "/" + year
+
         - if @card[:brand] == 'Visa'
           = image_tag 'logo/logo_visa.gif', :size => '31x20'
         - elsif @card[:brand] == 'MasterCard'
@@ -56,7 +55,7 @@
         %p 住所
         %p 名前
       .BuyItem__confirm
-        %button.btn 
+        %button.btn
           = link_to "購入する", pay_transaction_path(id: @item.id)
 
 = render "layouts/footer-sub"
