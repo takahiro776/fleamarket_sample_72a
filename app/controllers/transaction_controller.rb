@@ -1,27 +1,25 @@
 class TransactionController < ApplicationController
-  before_action :set_item
+  before_action :set_item, :set_card
 
   require "payjp"
 
   def show
-    card = CreditCard.where(user_id: current_user.id).last
-    if card.blank?
+    if @setcard.blank?
       redirect_to new_credit_card_path, alert:"商品購入にはクレジットカード登録が必要です"
     else
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-    customer = Payjp::Customer.retrieve(card.customer_id)
-    @card = customer.cards.retrieve(card.card_id) 
+    customer = Payjp::Customer.retrieve(@setcard.customer_id)
+    @card = customer.cards.retrieve(@setcard.card_id) 
     end
   end
 
   def pay
-    card = CreditCard.where(user_id: current_user.id).last
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     charge = Payjp::Charge.create(
-    :amount => @item.price,
-    :customer => card.customer_id,
-    :currency => 'jpy',
-    :capture => 'false'
+    amount: @item.price,
+    customer: @setcard.customer_id,
+    currency: 'jpy',
+    capture: 'false'
     )
     transaction = Transaction.new(user_id: current_user.id, item_id: @item.id )
     if transaction.save
@@ -36,5 +34,9 @@ class TransactionController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def set_card
+    @setcard = CreditCard.where(user_id: current_user.id).last
   end
 end

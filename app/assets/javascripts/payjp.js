@@ -1,4 +1,3 @@
-// $(function() {
 $(document).on("turbolinks:load",function(){
 
   if (!$('#token_submit')[0]) return false;

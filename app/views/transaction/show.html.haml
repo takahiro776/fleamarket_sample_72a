@@ -25,7 +25,8 @@
       .BuyItem__method
         .BuyItem__method__top
           %p 支払い方法
-          %a.change{:href => ""} 変更する
+          = link_to "変更する", credit_card_path(id: current_user.id), class: "change"
+          -# %a.change{:href => ""} 変更する
         %p クレジットカード
         %p
           = "***********" +  @card[:last4]
