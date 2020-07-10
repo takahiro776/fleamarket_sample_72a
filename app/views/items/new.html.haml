@@ -21,7 +21,7 @@
             = f.fields_for :images do |i|
               .form-group__image-box__icon
                 = icon('fa', 'camera')
-                = f.file_field :image_url
+                = i.file_field :image_url
             .form-group__image-box__text
               ドラックアンドドロップ
               %br またはクリックしてファイルをアップロード
