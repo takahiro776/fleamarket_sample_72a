@@ -193,6 +193,11 @@
       }
     }
 
+    &__btn{
+      display: block;
+      width: 100%;
+      margin: 0 auto;
+      
     &__telephone{
       @include inner;
       margin-top: 24px;
