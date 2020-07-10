@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'transaction/new'
-
   get 'users/show'
 
   devise_for :users
@@ -14,5 +12,12 @@ Rails.application.routes.draw do
       get 'done'
     end
   end
-  resources :credit_cards, only: [:new, :create, :show, :delete]
+  resources :credit_cards, only: [:new, :create, :show] do
+    member do
+      delete 'delete'
+    end
+    collection do
+      get 'brandnew'
+    end
+  end
 end

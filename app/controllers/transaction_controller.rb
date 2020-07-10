@@ -4,24 +4,32 @@ class TransactionController < ApplicationController
   require "payjp"
 
   def show
-    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     card = CreditCard.where(user_id: current_user.id).last
+    if card.blank?
+      redirect_to new_credit_card_path, alert:"商品購入にはクレジットカード登録が必要です"
+    else
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     customer = Payjp::Customer.retrieve(card.customer_id)
-    @card = customer.cards.retrieve(card.card_id)
+    @card = customer.cards.retrieve(card.card_id) 
+    end
   end
 
   def pay
     card = CreditCard.where(user_id: current_user.id).last
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-    Payjp::Charge.create(
+    charge = Payjp::Charge.create(
     :amount => @item.price,
     :customer => card.customer_id,
     :currency => 'jpy',
+    :capture => 'false'
     )
-    redirect_to action: 'done' #完了画面に移動
-  end
-
-  def done
+    transaction = Transaction.new(user_id: current_user.id, item_id: @item.id )
+    if transaction.save
+      charge.capture
+      redirect_to root_path, notice:"購入が完了しました"
+    else
+      redirect_to transaction_path, alert: "購入に失敗しました"
+    end
   end
 
   private
@@ -29,5 +37,4 @@ class TransactionController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
-
 end
