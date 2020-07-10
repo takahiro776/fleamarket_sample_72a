@@ -1,0 +1,213 @@
+* {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  width: 100%;
+  background-color: #e7e6e6;
+}
+
+.mypg-main {
+  max-width: 1020px;
+  padding: 40px;
+  margin: 0 auto;
+}
+
+.mypg-main .mypg-container {
+  display: flex;
+}
+
+.mypg-main .mypg-container .mypg-side {
+  width: 280px;
+  margin-right: 20px;
+}
+
+.mypg-main .mypg-container .mypg-side .mypg-side-bar {
+  text-align: left;
+}
+
+.mypg-main .mypg-container .mypg-side .mypg-side-bar ul li {
+  height: 52px;
+  width: 100%;
+  line-height: 52px;
+  font-size: 12px;
+  border: 1px solid #dedede;
+  background-color: #ffffff;
+  padding-left: 8px;
+}
+
+.mypg-main .mypg-container .mypg-side .mypg-side-bar ul li a {
+  display: block;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.mypg-main .mypg-container .mypg-side .mypg-side-bar h3 {
+  margin: 40px 0 0;
+  font-weight: bold;
+  color: #333;
+}
+
+.mypg-main .mypg-container .mypage-contents {
+  width: 700px;
+}
+
+.mypg-main .mypg-container .mypage-contents__user-icon {
+  height: 200px;
+  background-image: image-url("pict/bg-mainVisual-pict_pc.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  padding: 40px 40px;
+  background-color: #fff;
+  position: relative;
+}
+
+.mypg-main .mypg-container .mypage-contents__user-icon__top {
+  width: 100%;
+  height: inherit;
+  padding: inherit;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+}
+
+.mypg-main .mypg-container .mypage-contents__user-icon__top__text {
+  display: flex;
+}
+
+.mypg-main .mypg-container .mypage-contents__user-icon .mypage-contents__user-icon__top img {
+  width: 10%;
+}
+
+.mypg-main .mypg-container .mypage-contents .mypage-contents__user-icon a {
+  font-size: 15px;
+  text-decoration: none;
+  color: #333;
+}
+
+.mypg-main .mypg-container .mypage-contents__tabs {
+  background-color: #fff;
+}
+
+.mypg-main .mypg-container .mypage-contents__tabs__head {
+  background: #fafafa;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 72px;
+  padding: 0 16px;
+}
+
+.mypg-main .mypg-container .mypage-contents__tabs .mypage-tabs {
+  height: 74px;
+  line-height: 74px;
+  text-align: center;
+  display: flex;
+}
+
+.mypg-main .mypg-container .mypage-contents__tabs .mypage-tabs li {
+  width: 50%;
+  text-align: center;
+}
+
+.mypg-main .mypg-container .mypage-contents__tabs .mypage-tabs .active {
+  background-color: #eee;
+}
+
+.mypg-main .mypg-container .mypage-contents__tabs .mypage-tabs h3 {
+  font-size: 15px;
+}
+
+.mypg-main .mypg-container .mypage-contents__tabs .mypage-tabs a {
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: bold;
+  color: #000;
+}
+
+.mypg-main .mypg-container .mypage-contents .mypage-item-list li {
+  height: 52px;
+  width: 100%;
+  line-height: 52px;
+  font-size: 12px;
+  border: 1px solid #dedede;
+  background-color: #ffffff;
+  padding-left: 8px;
+}
+
+.mypg-main .mypg-container .mypage-contents .mypage-item-list li a {
+  display: block;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.bottom-content {
+  height: 300px;
+  background-image: image-url("pict/bg-appBanner-pict.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding: 80px 40px;
+}
+
+.bottom-content__banner {
+  max-width: 1020px;
+  width: 100%;
+  height: 160px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+}
+
+.bottom-content__banner .bottom-title {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bolder;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+}
+
+.bottom-content__banner .bottom-text {
+  color: #fff;
+  font-size: 35px;
+  margin: 15px 0 30px;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+}
+
+.bottom-content__banner .LinkIcon {
+  width: 170px;
+}
+
+.exhibitionBtn {
+  width: 120px;
+  background-color: #3ccace;
+  text-align: center;
+  border-radius: 50%;
+  bottom: 32px;
+  right: 32px;
+  position: fixed;
+  padding: 15px;
+}
+
+.exhibitionBtn__text {
+  color: #ffffff;
+  display: block;
+  font-size: 18px;
+  text-decoration: none;
+  margin-bottom: 5px;
+}
+
+.exhibitionBtn__icon {
+  width: 60px;
+  vertical-align: bottom;
+}
+/*# sourceMappingURL=users.css.map */
