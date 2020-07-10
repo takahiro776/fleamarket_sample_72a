@@ -193,7 +193,28 @@
       }
     }
 
+    &__telephone{
+      @include inner;
+      margin-top: 24px;
+      &__top{
+        @include flex;
+        p{
+          font-weight: bold;
+        }
+        &--any{
+          @include any;
+        }
+      }
+      &__form{
+        input{
+          @include input;
+        }
+      }
+    }
+
     &__btn{
+      display: block;
+      width: 100%;
       margin: 0 auto;
       margin-top: 24px;
       background: #ea352d;
@@ -209,7 +230,5 @@
       cursor: pointer;
       text-align: center;
     }
-
-   
   }
 }
