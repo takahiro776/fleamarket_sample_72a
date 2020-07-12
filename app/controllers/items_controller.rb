@@ -10,9 +10,9 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    binding.pry
-    # if params[:item][:images_attributes] && @item.save!
-    if @item.save!
+    # binding.pry
+    if params[:item][:images_attributes] && @item.save
+    # if @item.save
       redirect_to root_path
     else
       @item.images.new
@@ -35,7 +35,7 @@ class ItemsController < ApplicationController
                   :delivery_regions,
                   :shipping_schedule,
                   :price,
-                  images_attributes: {image_url: []})
+                  images_attributes: [:image_url, :id, :_destroy])
           .merge(user_id: current_user.id)
   end
 end
