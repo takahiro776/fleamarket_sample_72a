@@ -4,7 +4,6 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    # @image = @item.item_images.build
     @item.images.new
   end
 
@@ -23,6 +22,14 @@ class ItemsController < ApplicationController
   def show
   end
 
+  def destroy
+    if @item.destroy
+      redirect_to root_path
+        else
+      render :show
+    end
+  end
+
   private
   def item_params
     params.require(:item)
@@ -38,4 +45,9 @@ class ItemsController < ApplicationController
                   images_attributes: [:image_url, :id, :_destroy])
           .merge(user_id: current_user.id)
   end
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
 end
