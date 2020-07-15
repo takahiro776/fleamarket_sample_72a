@@ -13,8 +13,10 @@ Rails.application.routes.draw do
   get 'transaction/new'
 
   get 'users/show'
-  
-  resources :items, only:[:new, :show]
+
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root "items#index"
+  resources :items, only:[:new, :show, :create]
   resources :users, only:[:show]
   resources :transaction, only:[:new]
   resources :credit_cards, only: [:new, :create, :show, :delete]
