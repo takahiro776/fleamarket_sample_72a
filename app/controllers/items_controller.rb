@@ -9,9 +9,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    # binding.pry
     if params[:item][:images_attributes] && @item.save
-    # if @item.save
       redirect_to root_path
     else
       @item.images.new
@@ -25,7 +23,7 @@ class ItemsController < ApplicationController
   def destroy
     if @item.destroy
       redirect_to root_path
-        else
+    else
       render :show
     end
   end
