@@ -18,6 +18,18 @@ Rails.application.routes.draw do
   root "items#index"
   resources :items, only:[:new, :show, :create]
   resources :users, only:[:show]
-  resources :transaction, only:[:new]
-  resources :credit_cards, only: [:new, :create, :show, :delete]
+  resources :transaction, only:[:show] do
+    member do
+      get 'pay'
+      get 'done'
+    end
+  end
+  resources :credit_cards, only: [:new, :create, :show] do
+    member do
+      delete 'delete'
+    end
+    collection do
+      get 'brandnew'
+    end
+  end
 end
