@@ -44,24 +44,9 @@
                 = f.fields_for :images do |i|
                   .js-file_group{"data-index" => "#{i.index}"}
                     = i.file_field :image_url, class: 'js-file'
-                    -# %br
-                    -# %span.js-remove
-                    -#   削除
-
-          -# #image-box__container
-          -#   #previews
-          -#   %label.form-group__image-box
-          -#     .form-group__image-box__icon
-          -#       = icon('fa', 'camera')
-          -#     .form-group__image-box__text
-          -#       クリックしてファイルをアップロード
-          -#     = f.fields_for :images do |i|
-          -#       .js-file_group{"data-index" => "#{i.index}"}
-          -#         = i.file_field :image_url, class: 'js-file'
-          -#         %input{class:"hidden-field", type: "file", name: "product[images_attributes][1][image]", id: "product_images_attributes_1_image" }
-          -#         %input{class:"hidden-field", type: "file", name: "product[images_attributes][2][image]", id: "product_images_attributes_2_image" }
-          -#         %input{class:"hidden-field", type: "file", name: "product[images_attributes][3][image]", id: "product_images_attributes_3_image" }
-          -#         %input{class:"hidden-field", type: "file", name: "product[images_attributes][4][image]", id: "product_images_attributes_4_image" }
+                    %br
+                    %span.js-remove
+                      削除
 
       .sell-main__content
         .form-group
