@@ -1,10 +1,12 @@
 class Item < ApplicationRecord
   belongs_to :user
   belongs_to :category
-  has_many :images
+  has_many :images, dependent: :destroy
+  has_one :transactions, dependent: :destroy
+  accepts_nested_attributes_for :images, allow_destroy: true
 
-  validates :name, presence: true
-  validates :description, presence: true
+  validates :name, presence: true, length: {maximum: 40}
+  validates :description, presence: true, length: {maximum: 1000}
   validates :condition, presence: {message: "選択してください"}
   validates :delivery_fee, presence: {message: "選択してください"}
   validates :delivery_regions, presence: {message: "選択してください"}
@@ -18,12 +20,12 @@ class Item < ApplicationRecord
     "やや傷や汚れあり": 4,
     "傷や汚れあり": 5,
     "全体的に状態が悪い": 6
-  }
+  }, _prefix: true
 
   enum delivery_fee: {
     "送料込み(出品者負担)": 1,
     "着払い(購入者負担)": 2
-  }
+  }, _prefix: true
 
   enum delivery_regions: {
     "北海道": 1, "青森県": 2, "岩手県": 3, "宮城県": 4, "秋田県": 5,
@@ -36,11 +38,12 @@ class Item < ApplicationRecord
     "徳島県": 36, "香川県": 37, "愛媛県": 38, "高知県": 39, "福岡県": 40,
     "佐賀県": 41, "長崎県": 42, "熊本県": 43, "大分県": 44, "宮崎県": 45,
     "鹿児島県": 46, "沖縄県": 47, "未定": 48
-  }
+  }, _prefix: true
 
   enum shipping_schedule: {
     "1~2日で発送": 1,
     "2~3日で発送": 2,
     "4~7日で発送": 3
-  }
+  }, _prefix: true
+
 end

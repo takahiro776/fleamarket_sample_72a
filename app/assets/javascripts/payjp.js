@@ -1,6 +1,6 @@
-$(function() {
+$(document).on("turbolinks:load",function(){
+
   if (!$('#token_submit')[0]) return false;
-  
   Payjp.setPublicKey("pk_test_eb5ab5a3151e9b8ed26587a1");
 
   $("#token_submit").on("click", function(e) {
@@ -13,7 +13,7 @@ $(function() {
     };
 
     Payjp.createToken(card, function(status, response) {
-      console.log(status)
+
       if (status === 200) {
         $("#card_number").removeAttr("name");
         $("#exp_month").removeAttr("name");
