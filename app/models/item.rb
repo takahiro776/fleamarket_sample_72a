@@ -2,10 +2,11 @@ class Item < ApplicationRecord
   belongs_to :user
   belongs_to :category
   has_many :images, dependent: :destroy
+  has_one :transactions, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
 
-  validates :name, presence: true
-  validates :description, presence: true
+  validates :name, presence: true, length: {maximum: 40}
+  validates :description, presence: true, length: {maximum: 1000}
   validates :condition, presence: {message: "選択してください"}
   validates :delivery_fee, presence: {message: "選択してください"}
   validates :delivery_regions, presence: {message: "選択してください"}
