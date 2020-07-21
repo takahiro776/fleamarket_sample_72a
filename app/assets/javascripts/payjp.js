@@ -4,6 +4,7 @@ $(document).on("turbolinks:load",function(){
   Payjp.setPublicKey("pk_test_eb5ab5a3151e9b8ed26587a1");
 
   $("#token_submit").on("click", function(e) {
+    alert("テスト");
     e.preventDefault();
     var card = {
         number: $("#card_number").val(),
