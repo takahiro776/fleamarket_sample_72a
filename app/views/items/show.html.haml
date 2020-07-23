@@ -29,8 +29,8 @@
               %tbody
                 %tr
                   %th 出品者
-                  %td 
-                    = @user.nickname
+                  %td
+                    -# = @user.nickname
                 %tr
                   %th カテゴリー
                   %td
@@ -42,24 +42,23 @@
                 %tr
                   %th ブランド
                   %td
-                %tr
-                  %th 商品サイズ
-                  %td
+                    = link_to "#{@item.brand}", "#"
                 %tr
                   %th 商品の状態
-                  %td 未使用に近い
+                  %td
+                    = @item.condition
                 %tr
                   %th 配送料の負担
                   %td
-                    送料込み（出品者負担）
+                    = @item.delivery_fee
                 %tr
                   %th 発送元の地域
                   %td
-                    = link_to "#" do
-                      福岡県
+                    = link_to "#{@item.delivery_regions}", "#"
                 %tr
                   %th 発送日の目安
-                  %td ４〜７日で発送予定
+                  %td
+                    = @item.shipping_schedule
           .optional-box
             %ul
               %li#likeBtn.optionalBtn.likeBtn お気に入り 0
