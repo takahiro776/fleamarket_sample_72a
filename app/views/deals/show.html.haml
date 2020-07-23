@@ -26,7 +26,6 @@
         .BuyItem__method__top
           %p 支払い方法
           = link_to "変更する", credit_card_path(id: current_user.id), class: "change"
-          -# %a.change{:href => ""} 変更する
         %p クレジットカード
         %p
           = "***********" +  @card[:last4]
@@ -57,6 +56,6 @@
         %p 名前
       .BuyItem__confirm
         %button.btn
-          = link_to "購入する", pay_transaction_path(id: @item.id)
+          = link_to "購入する", pay_deal_path(id: @item.id)
 
 = render "layouts/footer-sub"
