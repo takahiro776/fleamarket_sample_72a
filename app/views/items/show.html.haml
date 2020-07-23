@@ -4,38 +4,33 @@
     .showContainer
       .items-contents
         .item-content
-          %h2.item-content__name ITEM No.1
+          %h2.item-content__name
+            = @item.name
           .item-content__body
             %ul.item-content__body__photos
               %li.item-content__body__top-photo
-                = image_tag "pict/pict-reason-01.jpg", alt: "画像１"
+                = image_tag @item.images.first.image_url, alt: "メイン画像"
               %ul.inner-photo
                 %li
-                  = image_tag "pict/pict-reason-02.jpg", alt: "画像１"
-                %li
-                  = image_tag "pict/pict-reason-03.jpg", alt: "画像１"
-                %li
-                  = image_tag "pict/pict-reason-01.jpg", alt: "画像１"
+                  - @item.images.each do |image|
+                    = image_tag image.image_url, alt: "サブ画像"
           .item-content__price
-            %span ¥30000
+            %span
+              = "¥#{@item.price}"
             .item-content__price__tax
               %span (税込)
-              %span 送料込み
+              %span
+                = @item.delivery_fee
             %button{type: "submit", name: "buy", class:'buy-btn'} 購入する
           .item-content__description
-            ダラスカウボーイズのＴシャツ！
-            %br/
-            濃いめの紺色です。
-            %br/
-            すごくかっこいいです。
-            %br/
-            よろしくお願いします。
+            = @item.description
           .table
             %table
               %tbody
                 %tr
                   %th 出品者
-                  %td HOGE
+                  %td 
+                    = @user.nickname
                 %tr
                   %th カテゴリー
                   %td
