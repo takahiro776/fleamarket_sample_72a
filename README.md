@@ -21,7 +21,7 @@
 - has_many :items
 - has_one :address
 - has_one :creditcard
-- has_many :transactions
+- has_many :deals
 - has_many :likes
 - has_many :messages
 - has_many :comments
@@ -71,7 +71,7 @@
 - belongs_to :user
 - belongs_to :category
 - has_many :images
-- has_many :transactions
+- has_many :deals
 - has_many :likes
 - has_many :messages
 - has_many :comments
@@ -99,7 +99,7 @@ belongs_to :item
 
 
 
-### Transactionテーブル
+### Dealsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|

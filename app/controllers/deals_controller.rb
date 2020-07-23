@@ -1,4 +1,4 @@
-class TransactionController < ApplicationController
+class DealsController < ApplicationController
   before_action :set_item, :set_card
 
   require "payjp"
@@ -21,12 +21,12 @@ class TransactionController < ApplicationController
     currency: 'jpy',
     capture: 'false'
     )
-    transaction = Transaction.new(user_id: current_user.id, item_id: @item.id )
-    if transaction.save
+    deal = Deal.new(user_id: current_user.id, item_id: @item.id )
+    if deal.save
       charge.capture
       redirect_to root_path, notice:"購入が完了しました"
     else
-      redirect_to transaction_path, alert: "購入に失敗しました"
+      redirect_to deal_path, alert: "購入に失敗しました"
     end
   end
 
