@@ -6,19 +6,20 @@
     .items-content
       .items-lists
         -@items.each do |i|
-          -if ()
-          .item-list
-            = link_to item_path(i.id) do
-              %figure.item-list__img
-                -i.images.each do |image|
-                  = image_tag image.image_url[0]
-                .item-list__body
-                  %h3.name 
-                    =i.name
-                  .item-list__deteils
-                    %ul
-                      %li
-                        =i.price 
-                        円
-                      %li 💙
-                    %p (税込み)
+          -if i.transaction.user_id.blank?
+            .item-list
+              = link_to item_path(i.id) do
+                %figure.item-list__img
+                  -i.images.each do |image|
+                    = image_tag image.image_url[0]
+                  .item-list__body
+                    %h3.name 
+                      =i.name
+                    .item-list__deteils
+                      %ul
+                        %li
+                          =i.price 
+                          円
+                        %li 💙
+                      %p (税込み)
+          - else #soldout
