@@ -14,22 +14,6 @@
               必須
           %p.form-group__image-guide
             最大10枚までアップロードできます
-          -# %label.form-group__image-box
-          -#   #image-box__container
-          -#     #previews
-          -#       - if @item.persisted?
-          -#         - @item.images.each_with_index do |image, i|
-          -#           = image_tag image.image_url, data: {index: i}, width: "100", height: "100"
-          -#     = f.fields_for :images do |i|
-          -#       .js-file_group{"data-index" => "#{i.index}"}
-          -#         = i.file_field :image_url, class: 'js-file'
-          -#         .form-group__image-box__icon
-          -#           = icon('fa', 'camera')
-          -#           %br
-          -#           %span.js-remove
-          -#             削除
-          -#     .form-group__image-box__text
-          -#       クリックしてファイルをアップロード
 
           #image-box__container
             #previews
@@ -44,24 +28,9 @@
                 = f.fields_for :images do |i|
                   .js-file_group{"data-index" => "#{i.index}"}
                     = i.file_field :image_url, class: 'js-file'
-                    -# %br
-                    -# %span.js-remove
-                    -#   削除
-
-          -# #image-box__container
-          -#   #previews
-          -#   %label.form-group__image-box
-          -#     .form-group__image-box__icon
-          -#       = icon('fa', 'camera')
-          -#     .form-group__image-box__text
-          -#       クリックしてファイルをアップロード
-          -#     = f.fields_for :images do |i|
-          -#       .js-file_group{"data-index" => "#{i.index}"}
-          -#         = i.file_field :image_url, class: 'js-file'
-          -#         %input{class:"hidden-field", type: "file", name: "product[images_attributes][1][image]", id: "product_images_attributes_1_image" }
-          -#         %input{class:"hidden-field", type: "file", name: "product[images_attributes][2][image]", id: "product_images_attributes_2_image" }
-          -#         %input{class:"hidden-field", type: "file", name: "product[images_attributes][3][image]", id: "product_images_attributes_3_image" }
-          -#         %input{class:"hidden-field", type: "file", name: "product[images_attributes][4][image]", id: "product_images_attributes_4_image" }
+                    %br
+                    %span.js-remove
+                      削除
 
       .sell-main__content
         .form-group

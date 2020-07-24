@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :items
   has_one :address
   has_one :creditcard
-  has_many :transactions
+  has_many :deals
   has_many :likes
   has_many :messages
   has_many :comments
