@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
+    @categorys = Category.all 
   end
 
   def create
@@ -21,7 +22,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    if @item.destroy
+    if @item.destroygit 
       redirect_to root_path
     else
       render :show
