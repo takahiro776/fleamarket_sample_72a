@@ -5,20 +5,92 @@
   .itemsContens
     .items-content
       .items-lists
-        - @items.each do |i|
-          = if i.deal.user_id.blank?
-            .item-list
-              = link_to item_path(i.id) do
-                %figure.item-list__img
-                  -i.images.each do |image|
-                    = image_tag image.image_url[0]
-                  .item-list__body
-                    %h3.name
-                      =i.name
-                    .item-list__deteils
-                      %ul
-                        %li
-                          =i.price
-                          円
-                        %li :ブルーハート:
-                      %p (税込み)
+        .item-list
+          = link_to "#" do
+            %figure.item-list__img
+              = image_tag 'pict/pict-reason-03.jpg', alt: "画像が表示される"
+            .item-list__body
+              %h3.name ITEM-NAME1
+              .item-list__deteils
+                %ul
+                  %li 6000円
+                  %li 💙
+                %p (税込み)
+        .item-list
+          = link_to "#" do
+            %figure.item-list__img
+              = image_tag 'pict/pict-reason-03.jpg', alt: "画像が表示される"
+            .item-list__body
+              %h3.name ITEM-NAME1
+              .item-list__deteils
+                %ul
+                  %li 6000円
+                  %li 💙
+                %p (税込み)
+        .item-list
+          = link_to "#" do
+            %figure.item-list__img
+              = image_tag 'pict/pict-reason-03.jpg', alt: "画像が表示される"
+            .item-list__body
+              %h3.name ITEM-NAME1
+              .item-list__deteils
+                %ul
+                  %li 6000円
+                  %li 💙
+                %p (税込み)
+        .item-list
+          = link_to "#" do
+            %figure.item-list__img
+              = image_tag 'pict/pict-reason-03.jpg', alt: "画像が表示される"
+            .item-list__body
+              %h3.name ITEM-NAME1
+              .item-list__deteils
+                %ul
+                  %li 6000円
+                  %li 💙
+                %p (税込み)
+      .items-lists
+        .item-list
+          = link_to "#" do
+            %figure.item-list__img
+              = image_tag 'pict/pict-reason-03.jpg', alt: "画像が表示される"
+            .item-list__body
+              %h3.name ITEM-NAME1
+              .item-list__deteils
+                %ul
+                  %li 6000円
+                  %li 💙
+                %p (税込み)
+        .item-list
+          = link_to "#" do
+            %figure.item-list__img
+              = image_tag 'pict/pict-reason-03.jpg', alt: "画像が表示される"
+            .item-list__body
+              %h3.name ITEM-NAME1
+              .item-list__deteils
+                %ul
+                  %li 6000円
+                  %li 💙
+                %p (税込み)
+        .item-list
+          = link_to "#" do
+            %figure.item-list__img
+              = image_tag 'pict/pict-reason-03.jpg', alt: "画像が表示される"
+            .item-list__body
+              %h3.name ITEM-NAME1
+              .item-list__deteils
+                %ul
+                  %li 6000円
+                  %li 💙
+                %p (税込み)
+        .item-list
+          = link_to "#" do
+            %figure.item-list__img
+              = image_tag 'pict/pict-reason-03.jpg', alt: "画像が表示される"
+            .item-list__body
+              %h3.name ITEM-NAME1
+              .item-list__deteils
+                %ul
+                  %li 6000円
+                  %li 💙
+                %p (税込み)
