@@ -6,3 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Category.create(name: "レディース")
+Category.create(name: "メンズ")
+Category.create(name: "キッズ")
+Category.create(name: "インテリア")
+Category.create(name: "本")
