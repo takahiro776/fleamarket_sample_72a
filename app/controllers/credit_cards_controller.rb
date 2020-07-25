@@ -4,6 +4,7 @@ class CreditCardsController < ApplicationController
 
 
   def new
+    gon.payjp_public_key = ENV['PAYJP_PUBLIC_KEY']
   end
 
   def brandnew
