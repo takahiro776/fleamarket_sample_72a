@@ -14,5 +14,7 @@ class User < ApplicationRecord
   has_one :destination
 
   validates :nickname, :first_name, :family_name, :first_name_kana, :family_name_kana, :birth_year, :birth_month, :birth_day, presence: true
-  validates :email, uniqueness: true
+  validates :email, uniqueness: true, format: {with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i}
+  validates :first_name, :family_name, :first_name_kana, :family_name_kana, format: {with: /\A[ぁ-んァ-ン一-龥]/}
+
 end
