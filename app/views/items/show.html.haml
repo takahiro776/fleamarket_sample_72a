@@ -4,38 +4,33 @@
     .showContainer
       .items-contents
         .item-content
-          %h2.item-content__name ITEM No.1
+          %h2.item-content__name
+            = @item.name
           .item-content__body
             %ul.item-content__body__photos
               %li.item-content__body__top-photo
-                = image_tag "pict/pict-reason-01.jpg", alt: "画像１"
+                = image_tag @item.images.first.image_url, alt: "メイン画像"
               %ul.inner-photo
                 %li
-                  = image_tag "pict/pict-reason-02.jpg", alt: "画像１"
-                %li
-                  = image_tag "pict/pict-reason-03.jpg", alt: "画像１"
-                %li
-                  = image_tag "pict/pict-reason-01.jpg", alt: "画像１"
+                  - @item.images.each do |image|
+                    = image_tag image.image_url, alt: "サブ画像"
           .item-content__price
-            %span ¥30000
+            %span
+              = "¥#{@item.price}"
             .item-content__price__tax
               %span (税込)
-              %span 送料込み
-            %button{type: "submit", name: "buy", class:'buy-btn'} 購入する
+              %span
+                = @item.delivery_fee
+            -# %button{type: "submit", name: "buy", class:'buy-btn'} 購入する
           .item-content__description
-            ダラスカウボーイズのＴシャツ！
-            %br/
-            濃いめの紺色です。
-            %br/
-            すごくかっこいいです。
-            %br/
-            よろしくお願いします。
+            = @item.description
           .table
             %table
               %tbody
                 %tr
                   %th 出品者
-                  %td HOGE
+                  %td
+                    = @user.nickname
                 %tr
                   %th カテゴリー
                   %td
@@ -47,24 +42,23 @@
                 %tr
                   %th ブランド
                   %td
-                %tr
-                  %th 商品サイズ
-                  %td
+                    = link_to "#{@item.brand}", "#"
                 %tr
                   %th 商品の状態
-                  %td 未使用に近い
+                  %td
+                    = @item.condition
                 %tr
                   %th 配送料の負担
                   %td
-                    送料込み（出品者負担）
+                    = @item.delivery_fee
                 %tr
                   %th 発送元の地域
                   %td
-                    = link_to "#" do
-                      福岡県
+                    = link_to "#{@item.delivery_regions}", "#"
                 %tr
                   %th 発送日の目安
-                  %td ４〜７日で発送予定
+                  %td
+                    = @item.shipping_schedule
           .optional-box
             %ul
               %li#likeBtn.optionalBtn.likeBtn お気に入り 0
@@ -72,6 +66,17 @@
               %li.optionalBtn
                 = link_to "#" do
                   不適切な不適切な商品の通報
+          - if user_signed_in?
+            - if current_user.id == @item.user.id
+              .item__edit
+                = link_to "商品を編集する", "#", method: :get
+                -# = link_to "商品を編集する", edit_item_path(@item.id), method: :get
+              .item__delete
+                = link_to "商品を削除する", "#", method: :item__delete
+                -# = link_to "商品を削除する", item_path(@item), method: :delete, class: "item__edit--delete"
+            - elsif current_user.id != @item.user.id
+              .item__purchase
+                = link_to "購入画面に進む", pay_deal_path(item_id: @item)
         .comments-contents
           %ul.comment-content
           %form#new-comment.new-comment{"accept-charset" => "UTF-8", action: "#", method: "post"}
@@ -93,8 +98,8 @@
         = image_tag 'icon/google-play-badge.png', alt: "画像１", class: "LinkIcon abtn"
       = link_to "#" do
         = image_tag 'icon/google-play-badge.png', alt: "画像１", class: "LinkIcon gbtn"
-= link_to "#" do
   .exhibitionBtn
-    %span.exhibitionBtn__text 出品
-    = image_tag 'icon/icon_camera.png', alt: "画像１", class: "exhibitionBtn__icon"
+    = link_to new_item_path do
+      %span.exhibitionBtn__text 出品
+      = image_tag 'icon/icon_camera.png', alt: "画像１", class: "exhibitionBtn__icon"
 = render "layouts/footer-main"
