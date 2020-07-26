@@ -3,9 +3,9 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :destroy]
   before_action :set_user, only: [:show, :destroy]
 
-
   def index
-    @items = Item.all
+    @items = Item.includes(:user).order("created_at DESC")
+
     @images = Image.all
   end
 
