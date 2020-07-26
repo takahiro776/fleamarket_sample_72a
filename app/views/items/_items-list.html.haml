@@ -6,7 +6,7 @@
     .items-content
       .items-lists
         -@items.each do |i|
-          -if i.transaction.user_id.blank?
+          -if i.deal.blank?
             .item-list
               = link_to item_path(i.id) do
                 %figure.item-list__img
@@ -22,4 +22,3 @@
                           円
                         %li 💙
                       %p (税込み)
-          - else #soldout
