@@ -1,6 +1,273 @@
-// Place all the styles related to the items controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 * {
   box-sizing: border-box;
+}
+
+.wrapper{
+  background-color: rgb(243, 240, 240);
+}
+
+.topMain{
+  height: 300px;
+  background-color: #ffffff;
+  position: relative;
+  &__content{
+    max-width: 1020px;
+    width: 100%;
+    height: 300px;
+    background-image: image-url("pict/bg-mainVisual-pict_pc.jpg");
+    background-repeat: no-repeat;
+    background-size: 85%;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    &__banner{
+      margin-top: 140px;
+      padding-left: 90px;
+      font-size: 100%;
+      .main-title{
+        color: #fff;
+        font-size: calc(100% + 20px);
+        text-shadow:  0 0 5px rgba(0,0,0,0.4);
+        padding-left: 8px;
+      }
+      .sub-title{
+        color: #fff;
+        margin-top: 10px;
+        line-height: 1.7778;
+        text-shadow:  0 0 5px rgba(0,0,0,0.4);
+        padding-left: 10px;
+      }
+      .LinkIcon{
+        width: 170px;
+      }
+    }
+  }
+}
+
+.fsIntroduction{
+  max-width: 1020px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 60px 20px;
+  .title{
+    text-align: center;
+    font-weight: bold;
+    font-size: 26px;
+  }
+  .lists{
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding-top: 35px;
+    .list{
+      width: 30%;
+      position: relative;
+      &__image img{
+        width: 100%;
+        margin-bottom: 20px;
+      }
+      &__description{
+        margin-top: 20px;
+        font-size: 15px;
+        line-height: 1.7em;
+        text-align: left;
+      }
+      .number{
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 30px;
+        border-radius: 4%;
+        text-align: center;
+        margin: 0 5px 0 0;
+        padding: 10px 20px;
+        color: #fff;
+        background-color: #3ccace;
+      }
+      &__text{
+        font-weight: bolder;
+        font-size: 24px;
+        line-height: 50px;
+      }
+    }
+  }
+}
+
+.sdIntroduction{
+  max-width: 1020px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 20px;
+  .title{
+    text-align: center;
+    font-weight: bold;
+    font-size: 26px;
+  }
+  .lists{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding-top: 35px;
+    .list{
+      width: 28%;
+      margin: 20px;
+      position: relative;
+      &__icon img{
+        width: 70%;
+      }
+      &__description{
+        margin-top: 20px;
+        font-size: 13px;
+        line-height: 1.7em;
+        text-align: left;
+      }
+      .number{
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 30px;
+        border-radius: 4%;
+        text-align: center;
+        margin: 0 5px 0 0;
+        padding: 5px 15px;
+        color: #fff;
+        background-color: #3ccace;
+      }
+      &__text{
+        font-weight: bolder;
+        font-size: 24px;
+        line-height: 50px;
+      }
+    }
+  }
+}
+
+.itemContainer{
+  .item-header{
+    height: 140px;
+    text-align: center;
+    padding-top: 50px;
+    background-color: white;
+    &__title{
+      line-height: 50px;
+      font-weight: bold;
+      font-size: 26px;
+    }
+    &__text{
+      font-size: 18px;
+      color: #3ccace;
+    }
+  }
+  .itemsContens{
+    max-width: 1020px;
+      width: 100%;
+      margin: 0 auto;
+    .items-content{
+      padding: 60px 0 60px;
+      .items-lists{
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        .item-list{
+          width: 20%;
+          line-height: 1.5;
+          text-align: left;
+          padding: 10px;
+          figure{
+            margin-inline-start: 0;
+            margin-inline-end: 0;
+            margin-block-start: 0;
+            margin-block-end: 0;
+          }
+          &__img img{
+          width: 100%;
+          }
+          &__body{
+            color: #333;
+            padding: 16px;
+            background-color: white;
+          }
+          &__deteils{
+            font-size: 15px;
+            text-decoration: none;
+            ul{
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+            }
+          }
+          a{
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+.bottom-content{
+  height: 350px;
+  background-image: image-url("pict/bg-appBanner-pict.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding: 80px 40px;
+  &__banner{
+    max-width: 1020px;
+    width: 100%;
+    height: 160px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    text-align: center;
+    &__title{
+      color: #fff;
+      font-size: 24px;
+      font-weight: bolder;
+      text-shadow:  0 0 5px rgba(0,0,0,0.4);
+    }
+    &__text{
+      color: #fff;
+      font-size: 35px;
+      margin: 15px 0 30px;
+      text-shadow:  0 0 5px rgba(0,0,0,0.4);
+    }
+    .LinkIcon{
+      width: 170px;
+    }
+  }
+}
+
+.exhibitionBtn{
+  width: 120px;
+  background-color: #3ccace;
+  text-align: center;
+  border-radius: 50%;
+  bottom: 32px;
+  right: 32px;
+  position: fixed;
+  padding: 15px;
+  &__text{
+    color: #ffffff;
+    display: block;
+    font-size: 18px;
+    text-decoration: none;
+    margin-bottom: 5px;
+  }
+  &__icon{
+    width: 60px;
+    vertical-align: bottom;
+  }
 }
