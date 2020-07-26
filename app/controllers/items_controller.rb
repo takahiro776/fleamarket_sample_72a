@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except:[:index, :show]
   before_action :set_item, only: [:show, :destroy]
+  before_action :set_user, only: [:show, :destroy]
+
 
   def index
     @items = Item.all
@@ -23,9 +25,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
-    @user = User.find(@item.user_id)
-    @image = @item.images
+    @images = @item.images
   end
 
   def destroy
@@ -56,4 +56,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def set_user
+    @users = User.find(@item.user_id)
+  end
 end
