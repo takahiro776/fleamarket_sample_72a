@@ -223,6 +223,20 @@
     border-radius: 2px;
     margin-left: 5px;
   }
+
+  &__category{
+    select{
+    display: inline-block;
+    width: 620px;
+    height: 48px;
+    border: solid 1px #bfbfbf;
+    border-radius: 5px;
+    margin-top: 16px;
+    padding: 0 16px;
+    line-height: 48px;
+    font-weight: normal;
+    }
+  }
 }
 
 .price-group {

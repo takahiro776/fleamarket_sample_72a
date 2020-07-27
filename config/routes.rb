@@ -28,4 +28,5 @@ Rails.application.routes.draw do
       get 'brandnew'
     end
   end
+  resources :categories, only: [:index]
 end

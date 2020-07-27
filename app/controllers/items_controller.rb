@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
-    @categorys = Category.all 
+    @categorys = Category.where(ancestry: nil)
   end
 
   def create
@@ -14,6 +14,7 @@ class ItemsController < ApplicationController
       redirect_to root_path
     else
       @item.images.new
+      @categorys = Category.where(ancestry: nil)
       render :new
     end
   end
@@ -22,7 +23,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    if @item.destroygit 
+    if @item.destroy
       redirect_to root_path
     else
       render :show
