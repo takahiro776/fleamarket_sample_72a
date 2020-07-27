@@ -64,7 +64,7 @@
 |delivery_regions|string|null: false|
 |shipping_schedule|string|null: false|
 |price|integer|null: false|
-|user_id|references|
+|user_id|references|null: false, foreign_key: true|
 |category_id|references|null: false, foreign_key: true|
 
 ### Association

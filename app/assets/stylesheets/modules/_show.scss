@@ -55,21 +55,6 @@
           font-size: 16px;
           margin-top: 5px;
         }
-        .buy-btn{
-          font-size: 18px;
-          line-height: 48px;
-          background-color: #3ccace;
-          border: none;
-          color: #fff;
-          width: 60%;
-          border-radius: 10px;
-          margin-top: 30px;
-          margin: 15px auto;
-          cursor: pointer;
-        }
-        .buy-btn:hover {
-          background-color: rgb(172, 172, 172);
-        }
       }
       &__description{
         font-size: 18px;
@@ -150,9 +135,72 @@ td {
     display: inline-block;
     padding: 6px 10px;
     border-radius: 4px;
-    color: #333;
-    border: 1px solid #333;
+    color: rgb(100, 100, 100);
+    border: 1px solid rgb(100, 100, 100);
     text-decoration: none;
+  }
+  .optionalBtn a:hover {
+    color: #fff;
+    background-color: rgb(100, 100, 100);
+  }
+}
+
+.item {
+  &__edit {
+    width: 100%;
+    height: 48px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 48px;
+    background-color: #3ccace;
+    border-radius: 4px;
+    margin-top: 30px;
+    cursor: pointer;
+    a {
+      color: #fff;
+    }
+  }
+  &__edit:hover {
+    background-color: rgb(172, 172, 172);
+  }
+
+  &__delete {
+    width: 100%;
+    height: 48px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 48px;
+    background-color: rgb(100, 100, 100);
+    border-radius: 4px;
+    margin-top: 30px;
+    cursor: pointer;
+    a {
+      color: #fff;
+    }
+  }
+  &__delete:hover {
+    background-color: rgb(172, 172, 172);
+  }
+
+  &__purchase {
+    width: 100%;
+    height: 48px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 48px;
+    background-color: #3ccace;
+    border-radius: 4px;
+    margin-top: 30px;
+    cursor: pointer;
+    a {
+      color: #fff;
+    }
+  }
+  &__purchase:hover {
+    background-color: rgb(172, 172, 172);
   }
 }
 
