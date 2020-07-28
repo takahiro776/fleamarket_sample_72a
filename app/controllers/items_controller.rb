@@ -27,6 +27,9 @@ class ItemsController < ApplicationController
 
   def show
     @images = @item.images
+    @grandchild = @item.category
+    @parent = @item.category.root
+    @children = @grandchild.parent
   end
 
   def destroy

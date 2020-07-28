@@ -10,21 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200721231537) do
+ActiveRecord::Schema.define(version: 20200721070023) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "postal_code",           limit: 7,              null: false
-    t.string   "prefectures",                                  null: false
-    t.string   "ctiy",                                         null: false
-    t.string   "block_number",                    default: "", null: false
+    t.string   "postal_code",           limit: 7, null: false
+    t.string   "prefectures",                     null: false
+    t.string   "ctiy",                            null: false
+    t.string   "block_number",                    null: false
     t.string   "apartment_name"
-    t.integer  "user_id",                                      null: false
-    t.datetime "created_at",                                   null: false
-    t.datetime "updated_at",                                   null: false
-    t.string   "ship_family_name",                             null: false
-    t.string   "ship_first_name",                              null: false
-    t.string   "ship_family_name_kana",                        null: false
-    t.string   "ship_first_name_kana",                         null: false
+    t.integer  "user_id",                         null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "ship_family_name",                null: false
+    t.string   "ship_first_name",                 null: false
+    t.string   "ship_family_name_kana",           null: false
+    t.string   "ship_first_name_kana",            null: false
     t.string   "telephone"
     t.index ["user_id"], name: "index_addresses_on_user_id", using: :btree
   end
@@ -67,13 +67,13 @@ ActiveRecord::Schema.define(version: 20200721231537) do
     t.string   "name",                            null: false
     t.text     "description",       limit: 65535, null: false
     t.string   "brand"
-    t.string   "condition",                       null: false
-    t.string   "delivery_fee",                    null: false
-    t.string   "delivery_regions",                null: false
-    t.string   "shipping_schedule",               null: false
+    t.integer  "condition",                       null: false
+    t.integer  "delivery_fee",                    null: false
+    t.integer  "delivery_regions",                null: false
+    t.integer  "shipping_schedule",               null: false
     t.integer  "price",                           null: false
-    t.integer  "user_id"
-    t.integer  "category_id"
+    t.integer  "user_id",                         null: false
+    t.integer  "category_id",                     null: false
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.index ["category_id"], name: "index_items_on_category_id", using: :btree
@@ -95,7 +95,7 @@ ActiveRecord::Schema.define(version: 20200721231537) do
     t.string   "family_name_kana",                    null: false
     t.string   "first_name_kana",                     null: false
     t.integer  "birth_year",                          null: false
-    t.integer  "birth_month",                         null: false, unsigned: true
+    t.integer  "birth_month",                         null: false
     t.integer  "birth_day",                           null: false
     t.string   "phone_num"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -108,4 +108,5 @@ ActiveRecord::Schema.define(version: 20200721231537) do
   add_foreign_key "deals", "users"
   add_foreign_key "images", "items"
   add_foreign_key "items", "categories"
+  add_foreign_key "items", "users"
 end
