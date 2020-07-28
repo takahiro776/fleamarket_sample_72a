@@ -5,7 +5,8 @@
     %title FleamarketSample72a
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all'
-    = include_gon
+    -# = include_gon
+    = Gon::Base.render_data
     = javascript_include_tag 'application'
     
     %script{src: "https://js.pay.jp/", type: "text/javascript"}
