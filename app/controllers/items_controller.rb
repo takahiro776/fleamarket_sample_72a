@@ -1,5 +1,11 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!, except:[:index, :show]
+  before_action :set_item, only: [:show, :destroy]
+  before_action :set_user, only: [:show, :destroy]
+
   def index
+    @items = Item.includes(:user).order("created_at DESC")
+    @images = Image.all
   end
 
   def new
@@ -20,6 +26,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @images = @item.images
   end
 
   def destroy
@@ -50,4 +57,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def set_user
+    @user = User.find(@item.user_id)
+  end
 end

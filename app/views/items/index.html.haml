@@ -61,7 +61,7 @@
         %h3.list__text 多様な決済方法
         %p.list__description
           お支払いは、クレジットカードだけではなく、ポイントや売上金など様々な決済方法をお選びできます！
-  = render "items-box"
+  = render "items-list"
 %aside.bottom-content
   .bottom-content__banner
     %h2.bottom-content__banner__title スマホでかんたん フリマアプリ
@@ -71,8 +71,8 @@
         = image_tag 'icon/google-play-badge.png', alt: "画像１", class: "LinkIcon abtn"
       = link_to "#" do
         = image_tag 'icon/google-play-badge.png', alt: "画像１", class: "LinkIcon gbtn"
-= link_to "#" do
   .exhibitionBtn
-    %span.exhibitionBtn__text 出品
-    = image_tag 'icon/icon_camera.png', alt: "画像１", class: "exhibitionBtn__icon"
+    = link_to new_item_path do
+      %span.exhibitionBtn__text 出品
+      = image_tag 'icon/icon_camera.png', alt: "画像１", class: "exhibitionBtn__icon"
 = render "layouts/footer-main"
