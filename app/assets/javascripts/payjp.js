@@ -21,6 +21,7 @@ $(function(){
           $("#card_token").append(`<input type="hidden" name="card_token" value=${token}>`)
           $("#card_form").get(0).submit();
         } else {
+          console.log(status)
           alert("カード情報が正しくありません。");
           $("#token_submit").prop('disabled', false);
         }
