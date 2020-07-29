@@ -76,7 +76,7 @@
                 -# = link_to "商品を削除する", item_path(@item), method: :delete, class: "item__edit--delete"
             - elsif current_user.id != @item.user.id
               .item__purchase
-                = link_to "購入画面に進む", pay_deal_path(item_id: @item)
+                = link_to "購入画面に進む", deal_path(item_id: @item)
         .comments-contents
           %ul.comment-content
           %form#new-comment.new-comment{"accept-charset" => "UTF-8", action: "#", method: "post"}
