@@ -54,9 +54,8 @@
             カテゴリー
           %span.form-group__require
             必須
-          -# .form-group__category-select
-            -# 選択してください
-          = f.select :category_id, 1..5, class: "form-group__category-select", placeholder: "40文字まで"
+          .form-group__category
+            = f.collection_select(:category_id, @categorys, :id, :name, {prompt: "選択して下さい"})
         .form-group
           %label
             ブランド

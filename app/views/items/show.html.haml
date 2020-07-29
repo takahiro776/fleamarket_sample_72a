@@ -35,10 +35,12 @@
                   %th カテゴリー
                   %td
                     = link_to "#" do
-                      メンズ・シャツ
-                    %br/
+                      = @parent.name
+                    - if @parent.id != @children.id
+                      = link_to "#" do 
+                        = ">" + @children.name 
                     = link_to "#" do
-                      Tシャツ（男女兼用）
+                      = ">" + @grandchild.name
                 %tr
                   %th ブランド
                   %td

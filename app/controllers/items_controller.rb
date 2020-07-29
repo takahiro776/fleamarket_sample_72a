@@ -11,6 +11,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
+    @categorys = Category.where(ancestry: nil)
   end
 
   def create
@@ -19,12 +20,16 @@ class ItemsController < ApplicationController
       redirect_to root_path
     else
       @item.images.new
+      @categorys = Category.where(ancestry: nil)
       render :new
     end
   end
 
   def show
     @images = @item.images
+    @grandchild = @item.category
+    @parent = @item.category.root
+    @children = @grandchild.parent
   end
 
   def destroy
