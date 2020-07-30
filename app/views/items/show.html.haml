@@ -35,10 +35,12 @@
                   %th カテゴリー
                   %td
                     = link_to "#" do
-                      メンズ・シャツ
-                    %br/
+                      = @parent.name
+                    - if @parent.id != @children.id
+                      = link_to "#" do 
+                        = ">" + @children.name 
                     = link_to "#" do
-                      Tシャツ（男女兼用）
+                      = ">" + @grandchild.name
                 %tr
                   %th ブランド
                   %td
@@ -65,7 +67,7 @@
             %ul.optional-inner
               %li.optionalBtn
                 = link_to "#" do
-                  不適切な不適切な商品の通報
+                  不適切な商品の通報
           - if user_signed_in?
             - if current_user.id == @item.user.id
               .item__edit
@@ -76,7 +78,7 @@
                 = link_to "商品を削除する", item_path(@item), method: :delete, class: "item__edit--delete"
             - elsif current_user.id != @item.user.id
               .item__purchase
-                = link_to "購入画面に進む", pay_deal_path(item_id: @item)
+                = link_to "購入画面に進む", deal_path(item_id: @item)
         .comments-contents
           %ul.comment-content
           %form#new-comment.new-comment{"accept-charset" => "UTF-8", action: "#", method: "post"}

@@ -1,6 +1,6 @@
 $(function(){
     if (!$('#token_submit')[0]) return false;
-    Payjp.setPublicKey("pk_test_eb5ab5a3151e9b8ed26587a1");
+    Payjp.setPublicKey(gon.payjp_public_key);
     $("#token_submit").on("click", function(e) {
       e.preventDefault();
       var card = {
@@ -21,6 +21,7 @@ $(function(){
           $("#card_token").append(`<input type="hidden" name="card_token" value=${token}>`)
           $("#card_form").get(0).submit();
         } else {
+          console.log(status)
           alert("カード情報が正しくありません。");
           $("#token_submit").prop('disabled', false);
         }
