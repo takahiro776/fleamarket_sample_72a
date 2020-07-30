@@ -56,6 +56,6 @@ class ItemsController < ApplicationController
   end
 
   def set_user
-    @users = User.find(@item.user_id)
+    @user = User.find(@item.user_id)
   end
 end
