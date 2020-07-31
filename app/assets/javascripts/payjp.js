@@ -1,6 +1,7 @@
 $(function(){
     if (!$('#token_submit')[0]) return false;
     Payjp.setPublicKey(gon.payjp_public_key);
+    console.log(gon.payjp_public_key)
     $("#token_submit").on("click", function(e) {
       e.preventDefault();
       var card = {
