@@ -1,0 +1,309 @@
+.wrapper {
+  background-color: rgb(245, 245, 245);
+}
+
+.sell-main {
+  &__container {
+    background-color: #ffffff;
+    width: 700px;
+    margin: 0 auto;
+  }
+
+  &__content {
+    width: 620px;
+    margin: 0 auto;
+    padding: 40px 0 ;
+    height: 100%;
+    border-bottom: solid 1px #efefef;
+  }
+
+  &__main-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  &__block-title {
+    color: #888888;
+    font-size: 14px;
+    display: inline-block;
+  }
+
+  &__btn {
+    width: 360px;
+    text-align: center;
+    margin: 0 130px 32px;
+      &--edit {
+        width: 360px;
+        background: #3CCACE;
+        font-size: 17px;
+        color: #fff;
+        font-weight: bold;
+        display: block;
+        text-decoration: none;
+        cursor: pointer;
+        line-height: 48px;
+        border-radius: 5px;
+        border: none;
+        &:hover {
+          background-color: rgb(49, 171, 175);
+        }
+      }
+      &--save {
+        background: #ccc;
+        font-size: 17px;
+        color: #222;
+        font-weight: bold;
+        display: block;
+        text-decoration: none;
+        cursor: pointer;
+        line-height: 48px;
+        border-radius: 5px;
+        margin-top: 24px;
+        &:hover {
+          background-color: rgb(172, 172, 172);
+        }
+      }
+      &--return {
+        font-size: 14px;
+        color: #66CCFF;
+        font-weight: normal;
+        display: block;
+        text-decoration: none;
+        cursor: pointer;
+        margin: 0 auto;
+        margin-top: 24px;
+      }
+    }
+  }
+
+.form-group {
+  padding: 20px 0;
+  font-weight: bold;
+
+  label {
+    font-size: 14px;
+  }
+
+  &__image-title {
+    font-size: 14px;
+    display: inline-block;
+  }
+
+  &__image-guide {
+    font-size: 14px;
+    margin: 16px 0;
+    font-weight: normal;
+  }
+
+  &__image-box {
+    display: inline-block;
+    width: 620px;
+    height: 150px;
+    background-color: #eeeeee;
+    border: dashed 1px #bfbfbf;
+    padding-top: 40px;
+    text-align: center;
+    cursor: pointer;
+    input {
+      display: none;
+    }
+  }
+
+  &__item-name {
+    display: inline-block;
+    width: 620px;
+    height: 48px;
+    border: solid 1px #bfbfbf;
+    border-radius: 5px;
+    margin-top: 16px;
+    padding: 0 16px;
+    line-height: 48px;
+    font-weight: normal;
+  }
+
+  &__item-description {
+    display: inline-block;
+    width: 620px;
+    height: 140px;
+    border: solid 1px #bfbfbf;
+    border-radius: 5px;
+    margin-top: 16px;
+    padding: 13px 16px;
+    font-weight: normal;
+  }
+
+  &__category-select {
+    display: inline-block;
+    width: 620px;
+    height: 48px;
+    border: solid 1px #bfbfbf;
+    border-radius: 5px;
+    margin-top: 16px;
+    padding: 0 16px;
+    line-height: 48px;
+    font-weight: normal;
+  }
+
+  &__brand-select {
+    display: inline-block;
+    width: 620px;
+    height: 48px;
+    border: solid 1px #bfbfbf;
+    border-radius: 5px;
+    margin-top: 16px;
+    padding: 0 16px;
+    line-height: 48px;
+    font-weight: normal;
+  }
+
+  #item_condition {
+    display: inline-block;
+    width: 620px;
+    height: 48px;
+    border: solid 1px #bfbfbf;
+    border-radius: 5px;
+    margin-top: 16px;
+    padding: 0 16px;
+    line-height: 48px;
+    font-weight: normal;
+  }
+
+  #item_delivery_fee {
+    display: inline-block;
+    width: 620px;
+    height: 48px;
+    border: solid 1px #bfbfbf;
+    border-radius: 5px;
+    margin-top: 16px;
+    padding: 0px 16px;
+    line-height: 48px;
+    font-weight: normal;
+  }
+
+  #item_delivery_regions {
+    display: inline-block;
+    width: 620px;
+    height: 48px;
+    border: solid 1px #bfbfbf;
+    border-radius: 5px;
+    margin-top: 16px;
+    padding: 0px 16px;
+    line-height: 48px;
+    font-weight: normal;
+  }
+
+  #item_shipping_schedule {
+    display: inline-block;
+    width: 620px;
+    height: 48px;
+    border: solid 1px #bfbfbf;
+    border-radius: 5px;
+    margin-top: 16px;
+    padding: 0px 16px;
+    line-height: 48px;
+    font-weight: normal;
+  }
+
+  &__require {
+    background-color: #ea352d;
+    color: #ffffff;
+    font-size: 12px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    margin-left: 5px;
+  }
+
+  &__ary {
+    background-color: #bfbfbf;
+    color: #ffffff;
+    font-size: 12px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    margin-left: 5px;
+  }
+
+  &__category{
+    select{
+    display: inline-block;
+    width: 620px;
+    height: 48px;
+    border: solid 1px #bfbfbf;
+    border-radius: 5px;
+    margin-top: 16px;
+    padding: 0 16px;
+    line-height: 48px;
+    font-weight: normal;
+    }
+  }
+}
+
+.price-group {
+  width: 620px;
+  margin: 0 auto;
+  padding: 40px 0 ;
+  height: 100%;
+  .sell-price {
+    color: #000000;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 20px 0;
+    position: relative;
+    .sell-price-input {
+      float: right;
+      display: flex;
+      position: absolute;
+      top: 20px;
+      right: 271px;
+      .sell-price-select {
+        display: inline-block;
+        width: 250px;
+        height:50px;
+        padding-right: 15px;
+        position: absolute;
+        top: -15px;
+        left: 15px;
+        border: solid 1px #bfbfbf;
+        border-radius: 5px;
+        text-align: right;
+        line-height: 48px;
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+.sell-price-fee {
+  padding: 20px 0;
+  font-size: 14px;
+  border-bottom: solid 1px #efefef;
+  .right-bar {
+    float: right;
+    margin-right: 25px;
+  }
+}
+
+.sell-price-profit {
+  padding: 20px 0;
+  font-size: 14px;
+  .right-bar-2 {
+    float: right;
+    margin-right: 25px;
+  }
+}
+
+.terms {
+  width: 620px;
+  height: 32px;
+  display: inline-block;
+  p {
+    font-size: 11px;
+    color: #333333;
+    padding: 0 10px;
+  }
+  .terms--links {
+    text-decoration: none;
+    color: #66CCFF;
+  }
+}

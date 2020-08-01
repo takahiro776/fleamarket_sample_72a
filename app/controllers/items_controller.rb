@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
-    @categorys = Category.where(ancestry: nil)
+    @categories = Category.where(ancestry: nil)
   end
 
   def create
@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
       redirect_to root_path
     else
       @item.images.new
-      @categorys = Category.where(ancestry: nil)
+      @categories = Category.where(ancestry: nil)
       render :new
     end
   end
@@ -33,11 +33,17 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    
+    @categories = Category.where(ancestry: nil)
   end
 
   def update
-    
+    if item_params[:category_id] == "---"
+      render :edit
+    elsif @item.update(item_params)
+      redirect_to item_path
+    else
+      render :edit
+    end
   end
 
   def destroy

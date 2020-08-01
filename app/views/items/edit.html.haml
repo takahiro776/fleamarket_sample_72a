@@ -5,7 +5,7 @@
     = form_for @item do |f|
       .sell-main__content
         .sell-main__main-title
-          出品商品の登録
+          出品商品の編集
         = render 'layouts/error_messages', model: f.object
         .form-group
           %label.form-group__image-title
@@ -115,7 +115,7 @@
 
       .sell-main__content
         .sell-main__btn
-          = f.submit "出品する", class: "sell-main__btn--sell"
+          = f.submit "変更する", class: "sell-main__btn--edit"
           =link_to "#", class: "sell-main__btn--save" do
             下書きに保存
           =link_to "#", class: "sell-main__btn--return" do
