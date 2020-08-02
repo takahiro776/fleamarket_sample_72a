@@ -16,8 +16,8 @@
             最大10枚までアップロードできます
 
           #image-box__container
-            #previews
-              %label.form-group__image-box
+            %label.form-group__image-box
+              #previews
                 - if @item.persisted?
                   - @item.images.each_with_index do |image, i|
                     = image_tag image.image_url, data: {index: i}, width: "100", height: "100"
@@ -28,7 +28,6 @@
                 = f.fields_for :images do |i|
                   .js-file_group{"data-index" => "#{i.index}"}
                     = i.file_field :image_url, class: 'js-file'
-                    %br
                     %span.js-remove
                       削除
 

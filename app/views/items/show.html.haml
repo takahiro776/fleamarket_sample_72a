@@ -70,7 +70,7 @@
           - if user_signed_in?
             - if current_user.id == @item.user.id
               .item__edit
-                = link_to "商品を編集する", edit_item_path(@item.id)
+                = link_to "商品を編集する", edit_item_path(@item)
               .item__delete
                 = link_to "商品を削除する", "#", method: :item__delete
                 -# = link_to "商品を削除する", item_path(@item), method: :delete, class: "item__edit--delete"
