@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   root "items#index"
   resources :items
-  resources :users, only:[:show, :edit, :update,]
+  resources :users, only:[:show, :edit, :update]
   resources :deals, only:[:show] do
     member do
       get 'pay'

@@ -16,20 +16,37 @@
             最大10枚までアップロードできます
 
           #image-box__container
-            %label.form-group__image-box
-              #previews
-                - if @item.persisted?
-                  - @item.images.each_with_index do |image, i|
-                    = image_tag image.image_url, data: {index: i}, width: "100", height: "100"
+            #previews
+              - if @item.persisted?
+                - @item.images.each_with_index do |image, i|
+                  = image_tag image.image_url, data: {index: i}, width: "100", height: "100"
+              %label.form-group__image-box
+                = f.fields_for :images do |i|
+                  .js-file_group{"data-index" => "#{i.index}"}
+                    = i.file_field :image_url, class: 'js-file'
                 .form-group__image-box__icon
                   = icon('fa', 'camera')
                 .form-group__image-box__text
                   クリックしてファイルをアップロード
-                = f.fields_for :images do |i|
-                  .js-file_group{"data-index" => "#{i.index}"}
-                    = i.file_field :image_url, class: 'js-file'
-                    %span.js-remove
-                      削除
+              %span.js-remove
+                削除
+
+          -# ※変更前
+          -# #image-box__container
+          -#   %label.form-group__image-box
+          -#     #previews
+          -#       - if @item.persisted?
+          -#         - @item.images.each_with_index do |image, i|
+          -#           = image_tag image.image_url, data: {index: i}, width: "100", height: "100"
+          -#       .form-group__image-box__icon
+          -#         = icon('fa', 'camera')
+          -#       .form-group__image-box__text
+          -#         クリックしてファイルをアップロード
+          -#       = f.fields_for :images do |i|
+          -#         .js-file_group{"data-index" => "#{i.index}"}
+          -#           = i.file_field :image_url, class: 'js-file'
+          -#           %span.js-remove
+          -#             削除
 
       .sell-main__content
         .form-group

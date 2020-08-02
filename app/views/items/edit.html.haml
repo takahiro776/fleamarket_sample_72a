@@ -30,13 +30,6 @@
                     = i.file_field :image_url, class: 'js-file'
                     %span.js-remove
                       削除
-              -#   - if @item.persisted?
-              -#     = image.check_box :_destroy, data:{index: i.index}, class: 'hidden-destroy'
-              -# - if @item.persisted?
-              -#   .js-file_group{"data-index" => "#{@i.item_images.count}"}
-              -#     = file_field_tag :image_url, name: "item[item_images_attributes][#{@i.item_images.count}][image_url]", class: 'js-file'
-              -#     %span.js-remove 
-              -#       削除
 
       .sell-main__content
         .form-group
@@ -61,7 +54,11 @@
           %span.form-group__require
             必須
           .form-group__category
-            = f.collection_select(:category_id, @categories, :id, :name, {prompt: "選択して下さい"})
+            = f.select :category, options_for_select(@category_parent_array.map{|c|[c, {}]}, @item.category.parent.parent.name), {}, {class: 'select', id: 'parent_category'}
+            .form_group#children
+              = f.select :category, options_for_select(@category_child_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.category.parent.id), {}, {class: 'select', id: 'child_category'}
+            .form_group#grandchildren
+              = f.select :category, options_for_select(@category_grandchild_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.category.id), {}, {class: 'select', id: 'grandchild_category'}
         .form-group
           %label
             ブランド
