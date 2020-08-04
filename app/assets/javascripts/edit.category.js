@@ -1,7 +1,8 @@
 $(function(){
-  $('.form-group__category').on('change','select',function(){
+  $('.form-group__category-edit').on('change','select',function(){
     $(this).nextAll('select').remove()
     let id = $(this).get(0).value
+    console.log(id)
     if (id == ""){
       return
     }else{
@@ -17,11 +18,11 @@ $(function(){
         if (categories == ""){
           return
         } else{
-        $('.form-group__category').append(`<select name="item[category_id]"></select>`)
-        $('.form-group__category > select:last').append(`<option value="">選択してください</option>`);
+        $('.form-group__category-edit').append(`<select name="item[category_id]"></select>`)
+        $('.form-group__category-edit > select:last').append(`<option value="">選択してください</option>`);
         categories.forEach(function(category){
           let html = `<option value=${category.id}>${category.name}</option>`
-          $('.form-group__category > select:last').append(html);
+          $('.form-group__category-edit > select:last').append(html);
         });
         }
       })

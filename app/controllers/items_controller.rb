@@ -37,6 +37,8 @@ class ItemsController < ApplicationController
     @category_parent_array = []
     # categoriesテーブルから親カテゴリーのみを抽出、配列に格納
     Category.where(ancestry: nil).each do |parent|
+      # parents = {}
+      # parents[:parent.name] = parent.name
       @category_parent_array << parent.name
     end
     # itemに紐づいていいる孫カテゴリーの親である子カテゴリが属している子カテゴリーの一覧を配列で取得
