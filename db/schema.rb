@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200721070023) do
+ActiveRecord::Schema.define(version: 20200721231537) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "postal_code",           limit: 7, null: false
@@ -67,12 +67,12 @@ ActiveRecord::Schema.define(version: 20200721070023) do
     t.string   "name",                            null: false
     t.text     "description",       limit: 65535, null: false
     t.string   "brand"
-    t.integer  "condition",                       null: false
-    t.integer  "delivery_fee",                    null: false
-    t.integer  "delivery_regions",                null: false
-    t.integer  "shipping_schedule",               null: false
+    t.string   "condition",                       null: false
+    t.string   "delivery_fee",                    null: false
+    t.string   "delivery_regions",                null: false
+    t.string   "shipping_schedule",               null: false
     t.integer  "price",                           null: false
-    t.integer  "user_id",                         null: false
+    t.integer  "user_id"
     t.integer  "category_id",                     null: false
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
@@ -108,5 +108,4 @@ ActiveRecord::Schema.define(version: 20200721070023) do
   add_foreign_key "deals", "users"
   add_foreign_key "images", "items"
   add_foreign_key "items", "categories"
-  add_foreign_key "items", "users"
 end
