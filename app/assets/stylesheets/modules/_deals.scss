@@ -63,8 +63,9 @@ p{
     justify-content: center;
     @include padding;
     .ProductImage{
-      width: 30%;
-      border: 1px solid;
+      img{
+        width: 100%;
+      }
     }
     &__exp{
       margin-left: 16px;
