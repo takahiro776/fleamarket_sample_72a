@@ -4,14 +4,25 @@ $(function() {
                     <input class="js-file" type="file"
                     name="item[images_attributes][${index}][image_url]"
                     id="item_images_attributes_${index}_image_url"><br>
-                    <div class="js-remove">削除</div>
                   </div>`;
     return html;
   }
 
   // プレビュー用のimgタグを生成する関数
   const buildImg = (index, url)=> {
-    const html = `<img data-index="${index}" src="${url}" width="100px" height="100px">`;
+    const html = `<div class="preview-box">
+                    <div class="upper-box">
+                      <img data-index="${index}" src="${url}" width="100px" height="100px">
+                    </div>
+                    <div class="lower-box">
+                      <div class="js-update">
+                        <span>編集</span>
+                      </div>
+                      <div class="js-remove" data-index="${index}">
+                        <span>削除</span>
+                      </div>
+                    </div>
+                  </div>`;
     return html;
   }
 
@@ -33,9 +44,11 @@ $(function() {
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
       img.setAttribute('src', blobUrl);
     } else {  // 新規画像追加の処理
-      $('#previews').append(buildImg(targetIndex, blobUrl));
+      $('.form-group__image-box').before(buildImg(targetIndex, blobUrl));
       // fileIndexの先頭の数字を使ってinputを作る
-      $('#image-box__container').append(buildFileField(fileIndex[0]));
+      // $('#image-box__container').append(buildFileField(fileIndex[0]));
+      $('#previews').append(buildFileField(fileIndex[0]));
+      $(".form-group__image-box").attr("for", `item_images_attributes_${fileIndex[0]}_image_url`)
       fileIndex.shift();
       // 末尾の数に1足した数を追加する
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1)
@@ -43,13 +56,14 @@ $(function() {
   });
 
   $('#image-box__container').on('click', '.js-remove', function() {
-    const targetIndex = $(this).parent().data('index');
+    const targetIndex = $(this).data('index');
     // 該当Indexを振られているチェックボックスを取得する
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
     // もしチェックボックスが存在すればチェックを入れる
     if (hiddenCheck) hiddenCheck.prop('checked', true);
 
-    $(this).parent().remove();
+    $(`#item_images_attributes_${targetIndex}_image_url`).remove();
+    $(this).parent().parent().remove();
     $(`img[data-index="${targetIndex}"]`).remove();
 
     // 画像入力欄が0個にならないようにしておく

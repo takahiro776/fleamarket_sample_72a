@@ -97,6 +97,13 @@
     font-weight: normal;
   }
 
+    #previews {
+    display: flex;
+    .js-file {
+    display: none;
+    }
+  }
+
   &__image-box {
     display: inline-block;
     width: 620px;
@@ -305,5 +312,41 @@
   .terms--links {
     text-decoration: none;
     color: #66CCFF;
+  }
+}
+
+.preview-box {
+  height: 150px;
+  width: 110px;
+  margin: 0 14px 10px 0;
+  .upper-box {
+    height: 110px;
+    width: 100%;
+    img{
+      width: 110px;
+      height: 110px;
+    }
+  }
+  .lower-box {
+    display: flex;
+    text-align: center;
+    .js-update {
+      color: #00b0ff;
+      width: 50%;
+      height: 40px;
+      line-height: 40px;
+      border: 1px solid #dddddd;
+      background: #eeeeee;
+      cursor: pointer;
+    }
+    .js-remove {
+      color: #00b0ff;
+      width: 50%;
+      height: 40px;
+      line-height: 40px;
+      border: 1px dashed #dddddd;
+      background: #eeeeee;
+      cursor: pointer;
+    }
   }
 }
