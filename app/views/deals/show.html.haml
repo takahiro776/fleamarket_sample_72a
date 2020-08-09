@@ -6,7 +6,8 @@
       .BuyItem__title
         %p 購入内容確認
       .BuyItem__product
-        %p.ProductImage ここに商品画像が入ります
+        .ProductImage
+          = image_tag @item.images.first.image_url
         .BuyItem__product__exp
           %p
             = @item[:name]
@@ -50,10 +51,16 @@
       .BuyItem__address
         .BuyItem__address__top
           %p 配送先
-          %a.change{:href => ""} 変更する
-        %p 郵便番号
-        %p 住所
-        %p 名前
+        %p
+          = "〒" + current_user.address.postal_code
+        %p
+          = current_user.address.prefectures
+          = current_user.address.ctiy
+          = current_user.address.block_number
+        %p 
+          = current_user.family_name
+          = current_user.first_name
+          
       .BuyItem__confirm
         %button.btn
           = link_to "購入する", pay_deal_path(id: @item.id)

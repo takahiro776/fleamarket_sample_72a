@@ -1,5 +1,6 @@
 class DealsController < ApplicationController
-  before_action :set_item, :set_card
+  before_action :authenticate_user!
+  before_action :set_item, :set_card, :confirmation  
 
   require "payjp"
 
@@ -38,5 +39,13 @@ class DealsController < ApplicationController
 
   def set_card
     @setcard = CreditCard.where(user_id: current_user.id).last
+  end
+
+  def confirmation
+    if current_user.id == @item.user_id
+      redirect_to root_path, alert: "ご自身で出品した商品は購入できません"
+    elsif @item.deal.present?
+      redirect_to root_path, alert: "すでに購入済みの商品です"
+    end
   end
 end
