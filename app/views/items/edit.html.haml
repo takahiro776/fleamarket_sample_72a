@@ -34,7 +34,7 @@
                 .form-group__image-box__text
                   クリックしてファイルをアップロード
                 = f.fields_for :images do |i|
-                  .js-file_group{data: {index: i}}
+                  .js-file_group{"data-index" => "#{i.index}"}
                     = i.file_field :image_url, class: 'js-file'
                     - if i.object.persisted?
                       = i.check_box :_destroy, data: {index: i.index}, class: 'hidden-destroy'
