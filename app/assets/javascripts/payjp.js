@@ -1,6 +1,6 @@
 $(function(){
     if (!$('#token_submit')[0]) return false;
-    Payjp.setPublicKey(gon.payjp_public_key);
+    Payjp.setPublicKey('pk_test_eb5ab5a3151e9b8ed26587a1');
     $("#token_submit").on("click", function(e) {
       e.preventDefault();
       var card = {

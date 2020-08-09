@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'users/show'
 
   root "items#index"
-  resources :items
+  resources :items, only:[:new, :show, :create, :destroy]
   resources :users, only:[:show, :edit, :update]
   resources :deals, only:[:show] do
     member do
