@@ -15,10 +15,10 @@ $(function() {
                       <img data-index="${index}" src="${url}" width="100px" height="100px">
                     </div>
                     <div class="lower-box">
-                      <div class="js-update">
-                        <span>編集</span>
+                      <div class="js-img-change" data-index="${index}">
+                        <span>変更</span>
                       </div>
-                      <div class="js-remove" data-index="${index}">
+                      <div class="js-img-remove" data-index="${index}">
                         <span>削除</span>
                       </div>
                     </div>
@@ -34,6 +34,7 @@ $(function() {
 
   $('.hidden-destroy').hide();
 
+  // 【追加アップロード/画像変更機能】
   $('#image-box__container').on('change', '.js-file', function(e) {
     const targetIndex = $(this).parent().data('index');
     // ファイルのブラウザ上でのURLを取得する
@@ -55,13 +56,19 @@ $(function() {
     }
   });
 
-  $('#image-box__container').on('click', '.js-remove', function() {
+    // 【edit機能】
+    $('#image-box__container').on('click', '.js-img-change', function() {
+      const targetIndex = $(this).data('index');
+      $(`#item_images_attributes_${targetIndex}_image_url`).trigger("click");
+    });
+
+  // 【削除機能】
+  $('#image-box__container').on('click', '.js-img-remove', function() {
     const targetIndex = $(this).data('index');
     // 該当Indexを振られているチェックボックスを取得する
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
     // もしチェックボックスが存在すればチェックを入れる
     if (hiddenCheck) hiddenCheck.prop('checked', true);
-
     $(`#item_images_attributes_${targetIndex}_image_url`).remove();
     $(this).parent().parent().remove();
     $(`img[data-index="${targetIndex}"]`).remove();

@@ -330,8 +330,9 @@
   .lower-box {
     display: flex;
     text-align: center;
-    .js-update {
-      color: #00b0ff;
+    font-size: 14px;
+    color: #00b0ff;
+    .js-img-change {
       width: 50%;
       height: 40px;
       line-height: 40px;
@@ -339,12 +340,11 @@
       background: #eeeeee;
       cursor: pointer;
     }
-    .js-remove {
-      color: #00b0ff;
+    .js-img-remove {
       width: 50%;
       height: 40px;
       line-height: 40px;
-      border: 1px dashed #dddddd;
+      border: 1px solid #dddddd;
       background: #eeeeee;
       cursor: pointer;
     }
