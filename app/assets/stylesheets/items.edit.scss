@@ -34,7 +34,7 @@
     width: 360px;
     text-align: center;
     margin: 0 130px 32px;
-      &--sell {
+      &--edit {
         width: 360px;
         background: #3CCACE;
         font-size: 17px;
@@ -97,7 +97,7 @@
     font-weight: normal;
   }
 
-  #previews {
+    #previews {
     display: flex;
     .js-file {
     display: none;
@@ -231,7 +231,7 @@
     margin-left: 5px;
   }
 
-  &__category{
+  &__category-edit {
     select{
     display: inline-block;
     width: 620px;

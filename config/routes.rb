@@ -7,13 +7,12 @@ Rails.application.routes.draw do
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
   end
-  
+
   get 'users/show'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "items#index"
   resources :items, only:[:new, :show, :create, :destroy]
-  resources :users, only:[:show]
+  resources :users, only:[:show, :edit, :update]
   resources :deals, only:[:show] do
     member do
       get 'pay'

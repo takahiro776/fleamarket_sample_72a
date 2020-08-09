@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except:[:index, :show]
-  before_action :set_item, only: [:show, :destroy]
-  before_action :set_user, only: [:show, :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @items = Item.includes(:user).order("created_at DESC")
@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
-    @categorys = Category.where(ancestry: nil)
+    @categories = Category.where(ancestry: nil)
   end
 
   def create
@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
       redirect_to root_path
     else
       @item.images.new
-      @categorys = Category.where(ancestry: nil)
+      @categories = Category.where(ancestry: nil)
       render :new
     end
   end
@@ -30,6 +30,20 @@ class ItemsController < ApplicationController
     @grandchild = @item.category
     @parent = @item.category.root
     @children = @grandchild.parent
+  end
+
+  def edit
+    @item.images.new
+  end
+
+  def update
+    if item_params[:category_id] == "---"
+      render :edit
+    elsif @item.update(item_params)
+      redirect_to item_path
+    else
+      render :edit
+    end
   end
 
   def destroy

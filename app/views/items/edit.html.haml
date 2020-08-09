@@ -5,7 +5,7 @@
     = form_for @item do |f|
       .sell-main__content
         .sell-main__main-title
-          出品商品の登録
+          出品商品の編集
         = render 'layouts/error_messages', model: f.object
         .form-group
           %label.form-group__image-title
@@ -19,15 +19,25 @@
             #previews
               - if @item.persisted?
                 - @item.images.each_with_index do |image, i|
-                  = image_tag image.image_url, data:{index: i}, width: "100", height: "100"
-              %label.form-group__image-box{for: "item_images_attributes_0_image_url"}
+                  - if image.persisted?
+                    .preview-box
+                      .upper-box
+                        = image_tag image.image_url, data: {index: i}, width: "100", height: "100"
+                      .lower-box
+                        .js-img-change{data: {index: i}}
+                          変更
+                        .js-img-remove{data: {index: i}}
+                          削除
+              %label.form-group__image-box{for: "item_images_attributes_#{@item.images.length - 1}_image_url"}
                 .form-group__image-box__icon
                   = icon('fa', 'camera')
                 .form-group__image-box__text
                   クリックしてファイルをアップロード
-              = f.fields_for :images do |i|
-                .js-file_group{"data-index" => "#{i.index}"}
-                  = i.file_field :image_url, class: 'js-file'
+                = f.fields_for :images do |i|
+                  .js-file_group{"data-index" => "#{i.index}"}
+                    = i.file_field :image_url, class: 'js-file'
+                    - if i.object.persisted?
+                      = i.check_box :_destroy, data: {index: i.index}, class: 'hidden-destroy'
 
       .sell-main__content
         .form-group
@@ -51,8 +61,10 @@
             カテゴリー
           %span.form-group__require
             必須
-          .form-group__category
-            = f.collection_select(:category_id, @categories, :id, :name, {prompt: "選択して下さい"})
+          .form-group__category-edit
+            = f.collection_select(:category_id, Category.roots, :id, :name, {selected: @item.category.parent.parent_id})
+            = f.collection_select(:category_id, @item.category.parent.siblings, :id, :name, {prompt: "選択して下さい"})
+            = f.collection_select(:category_id, @item.category.siblings, :id, :name, {prompt: "選択して下さい"})
         .form-group
           %label
             ブランド
@@ -112,7 +124,7 @@
 
       .sell-main__content
         .sell-main__btn
-          = f.submit "出品する", class: "sell-main__btn--sell"
+          = f.submit "変更する", class: "sell-main__btn--edit"
           =link_to "#", class: "sell-main__btn--save" do
             下書きに保存
           =link_to "#", class: "sell-main__btn--return" do
