@@ -48,25 +48,6 @@ class ItemsController < ApplicationController
       @item.category_id = @category
       render :edit
     end
-
-    # パターン②
-    # if item_params[:images_attributes].nil?
-    #   flash.now[:alert] = '更新できませんでした 【画像を１枚以上入れてください】'
-    #   render :edit
-    # elsif item_params[:category_id] == "---"
-    #   render :edit
-    # else @item.update(item_params)
-    #   redirect_to item_path
-    # end
-
-    # パターン①
-    # if item_params[:category_id] == "---"
-    #   render :edit
-    # elsif @item.update(item_params)
-    #   redirect_to item_path
-    # else
-    #   render :edit
-    # end
   end
 
   def destroy
