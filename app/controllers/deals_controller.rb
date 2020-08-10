@@ -1,6 +1,7 @@
 class DealsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_item, :set_card, :confirmation  
+  before_action :set_item, :set_card, :confirmation 
+  before_action :show, only: [:pay]
 
   require "payjp"
 
