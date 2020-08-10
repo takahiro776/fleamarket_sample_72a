@@ -35,7 +35,7 @@
                   %td
                     = link_to "#" do
                       = @parent.name
-                    - if @parent.id != @children.id
+                    - if @parent.id != @children&.id
                       = link_to "#" do 
                         = ">" + @children.name 
                     = link_to "#" do
@@ -97,8 +97,4 @@
         = image_tag 'icon/google-play-badge.png', alt: "画像１", class: "LinkIcon abtn"
       = link_to "#" do
         = image_tag 'icon/google-play-badge.png', alt: "画像１", class: "LinkIcon gbtn"
-  .exhibitionBtn
-    = link_to new_item_path do
-      %span.exhibitionBtn__text 出品
-      = image_tag 'icon/icon_camera.png', alt: "画像１", class: "exhibitionBtn__icon"
 = render "layouts/footer-main"
