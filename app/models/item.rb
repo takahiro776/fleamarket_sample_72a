@@ -12,6 +12,8 @@ class Item < ApplicationRecord
   validates :delivery_regions, presence: {message: "選択してください"}
   validates :shipping_schedule, presence: {message: "選択してください"}
   validates :price, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "300以上9999999以下で入力して下さい"}
+  validates :images, length: {minimum: 1}
+  validates :category_id, presence: true
 
   enum condition: {
     "新品、未使用": 1,

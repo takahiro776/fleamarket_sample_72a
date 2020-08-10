@@ -37,13 +37,36 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if item_params[:category_id] == "---"
-      render :edit
-    elsif @item.update(item_params)
+    @category = @item.category_id
+    if @item.update(item_params) 
       redirect_to item_path
-    else
+    elsif item_params[:images_attributes] == ""
+      flash.now[:alert] = '変更できませんでした 【画像を１枚以上入れてください】'
+      render :edit
+    else item_params[:category_id].blank?
+      flash.now[:alert] = '変更できませんでした 【カテゴリーを選択してください】'
+      @item.category_id = @category
       render :edit
     end
+
+    # パターン②
+    # if item_params[:images_attributes].nil?
+    #   flash.now[:alert] = '更新できませんでした 【画像を１枚以上入れてください】'
+    #   render :edit
+    # elsif item_params[:category_id] == "---"
+    #   render :edit
+    # else @item.update(item_params)
+    #   redirect_to item_path
+    # end
+
+    # パターン①
+    # if item_params[:category_id] == "---"
+    #   render :edit
+    # elsif @item.update(item_params)
+    #   redirect_to item_path
+    # else
+    #   render :edit
+    # end
   end
 
   def destroy
