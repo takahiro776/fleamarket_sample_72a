@@ -41,10 +41,8 @@ class ItemsController < ApplicationController
     if @item.update(item_params) 
       redirect_to item_path
     elsif item_params[:images_attributes] == ""
-      flash.now[:alert] = '変更できませんでした 【画像を１枚以上入れてください】'
       render :edit
     else item_params[:category_id].blank?
-      flash.now[:alert] = '変更できませんでした 【カテゴリーを選択してください】'
       @item.category_id = @category
       render :edit
     end
