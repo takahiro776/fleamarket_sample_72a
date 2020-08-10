@@ -10,8 +10,7 @@
             .item-list
               = link_to item_path(i.id) do
                 %figure.item-list__img
-                  -i.images.each do |image|
-                    = image_tag image.image_url.to_s
+                  = image_tag i.images[0].image_url.to_s
                   .item-list__body
                     %h3.name 
                       =i.name
