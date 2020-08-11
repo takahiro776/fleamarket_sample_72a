@@ -148,40 +148,42 @@ td {
 
 .item {
   &__edit {
-    width: 100%;
-    height: 48px;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-    line-height: 48px;
-    background-color: #3ccace;
-    border-radius: 4px;
     margin-top: 30px;
-    cursor: pointer;
     a {
+      display: inline-block;
+      width: 100%;
+      height: 48px;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      line-height: 48px;
+      background-color: #3ccace;
+      border-radius: 4px;
+      cursor: pointer;
       color: #fff;
     }
   }
-  &__edit:hover {
+  &__edit a:hover {
     background-color: rgb(172, 172, 172);
   }
 
   &__delete {
-    width: 100%;
-    height: 48px;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-    line-height: 48px;
-    background-color: rgb(100, 100, 100);
-    border-radius: 4px;
     margin-top: 30px;
-    cursor: pointer;
     a {
+      display: inline-block;
+      width: 100%;
+      height: 48px;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      line-height: 48px;
+      background-color: rgb(100, 100, 100);
+      border-radius: 4px;
+      cursor: pointer;
       color: #fff;
     }
   }
-  &__delete:hover {
+  &__delete a:hover {
     background-color: rgb(172, 172, 172);
   }
 
