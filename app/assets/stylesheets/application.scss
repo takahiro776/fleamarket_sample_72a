@@ -6,15 +6,15 @@
 @import "modules/footer-sub";
 @import "modules/footer-main";
 @import "modules/header-main";
-@import "items";
+@import "items/index.scss";
 @import "modules/show";
 @import "modules/signin";
 @import "modules/signup";
 @import "modules/new_address";
 @import "users";
 
-@import "items.new";
-@import "items.edit";
+@import "items/new.scss";
+@import "items/edit.scss";
 @import "credit_cards";
 @import "modules/flash";
 
